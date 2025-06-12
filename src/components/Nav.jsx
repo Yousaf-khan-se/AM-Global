@@ -16,7 +16,7 @@ const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
 
     return (
-        <nav className='flex justify-between items-center p-6 md:p-10 relative'>
+        <nav className='flex justify-between items-center p-6 md:p-10'>
             <img src={logo} alt='Company Logo' className='h-8' />
             {/* Desktop Nav */}
             <ul className='hidden md:flex justify-center gap-4'>
