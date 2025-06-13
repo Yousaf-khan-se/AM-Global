@@ -21,6 +21,9 @@ import section4Logo from '../assets/section4Logo.png'
 import section5Pattern from '../assets/section5Assets/section5Pattern.png'
 import section5CrescentPattern from '../assets/section5Assets/section5CrescentPattern.png'
 import section5pics from '../assets/section5Assets/section5pics.png'
+import section6pic from '../assets/section6pic.png'
+import section7Background from '../assets/section7Background.png'
+
 const Home = () => {
 
     //Features Desc
@@ -142,10 +145,51 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className="bg-cover bg-center h-auto w-auto pb-20 pt-20 flex-1 flex-col justify-evenly content-evenly"
+            <section className="relative bg-cover bg-center h-auto w-auto pb-20 pt-20 flex-col justify-evenly content-evenly"
                 style={{ backgroundImage: `url(${section5Pattern})` }}
             >
+                <div className="absolute inset-0 bg-white/15"></div>
+                <div className='p-10'>
+                    <h1 className='sm:text-3xl text-4xl font-semibold p-3'>Our Office</h1>
+                    <p>Find us at our offices in JAFZA and Dubai Main Office</p>
+                </div>
+                <img src={section5CrescentPattern} className='absolute' alt="" />
+                <div className='flex flex-col items-center justify-center'>
+                    <img className='w-2/3 h-auto pt-10' src={section5pics} alt="" />
+                </div>
+            </section>
 
+            <section className='h-auto w-auto pb-20 pt-20 flex flex-col justify-center items-center'>
+                <h1 className='sm:text-4xl text-3xl p-10'><span className='text-yellow-500'>INDUSTRIES </span>WE ARE SERVING</h1>
+                <img className='sm:p-20 p-10' src={section6pic} alt="" />
+            </section>
+
+            <section className='relative bg-cover bg-center h-screen w-auto pb-20 pt-20 flex flex-col justify-center items-center gap-10'
+                style={{ backgroundImage: `url(${section7Background})` }}>
+                <div className='absolute inset-0 bg-amber-400 bg-gradient-to-b from-white/20 to-yellow-500/90 opacity-50 -z-10'></div>
+                <h1 className='text-3xl sm:text-4xl'>Our <span className='bg-black'>Impact</span> in Numbers</h1>
+                <p>Our outsourcing and manpower solutions have helped businesses in a wide range of industries to save time and money while reducing compliance risks.</p>
+                <div className='flex flex-col sm:flex-row w-auto justify-evenly items-center content-center bg-gray-900 rounded-xl p-6 sm:p-10 gap-4'>
+                    <div className='w-60 h-20'>
+                        <h1 className='font-bold text-3xl sm:text-4xl'>20+</h1>
+                        <p>Industries</p>
+                    </div>
+                    <div className='w-60 h-20'>
+                        <h1 className='font-bold text-3xl sm:text-4xl'>1000+</h1>
+                        <p>Resource Pool Available</p>
+                    </div>
+                    <div className='w-60 h-20'>
+                        <h1 className='font-bold text-3xl sm:text-4xl'>20+</h1>
+                        <p>Business Partnerships</p>
+                        <p>(still growing)</p>
+                    </div>
+                    <div className='w-44 h-20'>
+                        <h1 className='font-bold text-3xl sm:text-4xl'>10+</h1>
+                        <p>AM Global Team has
+                            10+ Year's experience
+                            in staffing business</p>
+                    </div>
+                </div>
             </section>
         </div >
     )
