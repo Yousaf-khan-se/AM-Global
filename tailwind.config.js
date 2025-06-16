@@ -6,6 +6,12 @@ export default {
   ,
   theme: {
     extend: {
+      colors: {
+        themeY: 'rgba(240, 215, 132, 1)',
+        themeYDark: 'rgba(195, 163, 73, 1)',
+        themeYTwo: 'rgba(237, 213, 105, 1)',
+        themeYDarkTwo: 'rgba(151, 118, 25, 1)'
+      },
     },
   },
   plugins: [],

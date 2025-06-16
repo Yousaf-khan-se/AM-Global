@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
+const t_size = 0.6; // in rem
 
 const ContactButton = () => {
     return (
-        <button className='relative overflow-hidden text-yellow-500 border p-2 pr-6 pl-6 border-yellow-500 rounded-lg transition-colors duration-300 group'>
-            <span className="absolute inset-0 w-full h-full bg-yellow-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0"></span>
+        <button className={`text-[${t_size}rem] relative overflow-hidden text-themeY border p-1 pr-6 pl-6 ml-20 border-themeY/50 rounded transition-colors duration-300 group`}>
+            <span className="absolute inset-0 w-full h-full bg-themeYDark scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0"></span>
             <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact Us</span>
         </button>
     )
@@ -14,17 +15,16 @@ const ContactButton = () => {
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
-
     return (
-        <nav className='flex justify-between items-center p-6 md:p-10'>
-            <img src={logo} alt='Company Logo' className='h-8' />
+        <nav className='flex justify-evenly items-center p-40 md:p-8'>
+            <img src={logo} alt='Company Logo' className='h-8 pr-28' />
             {/* Desktop Nav */}
-            <ul className='hidden md:flex justify-center gap-4'>
-                <NavLink to="/" className='hover:underline hover:decoration-yellow-500 decoration-yellow-500 underline-offset-4 [&.active]:underline [&.active]:decoration-yellow-500' end><li>Home</li></NavLink>
-                <NavLink to="/about" className='hover:underline hover:decoration-yellow-500 decoration-yellow-500 underline-offset-4 [&.active]:underline [&.active]:decoration-yellow-500'><li>About</li></NavLink>
-                <NavLink to="/access-control" className='hover:underline hover:decoration-yellow-500 decoration-yellow-500 underline-offset-4 [&.active]:underline [&.active]:decoration-yellow-500'><li>Access Control</li></NavLink>
-                <NavLink to="/fire-alarms" className='hover:underline hover:decoration-yellow-500 decoration-yellow-500 underline-offset-4 [&.active]:underline [&.active]:decoration-yellow-500'><li>Fire Alarms</li></NavLink>
-                <NavLink to="/cctv" className='hover:underline hover:decoration-yellow-500 decoration-yellow-500 underline-offset-4 [&.active]:underline [&.active]:decoration-yellow-500'><li>CCTV</li></NavLink>
+            <ul className={`hidden md:flex justify-center gap-10 text-[${t_size}rem]`}>
+                <NavLink to="/" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark' end><li>Home</li></NavLink>
+                <NavLink to="/about" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>About</li></NavLink>
+                <NavLink to="/access-control" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Access Control</li></NavLink>
+                <NavLink to="/fire-alarms" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Fire Alarms</li></NavLink>
+                <NavLink to="/cctv" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>CCTV</li></NavLink>
             </ul>
             <div className='hidden md:block'>
                 <ContactButton />
@@ -32,7 +32,7 @@ const Nav = () => {
             {/* Hamburger Icon */}
             {!menuOpen && (
                 <button className='md:hidden z-20' onClick={() => setMenuOpen(!menuOpen)} aria-label="Open Menu">
-                    <svg className='w-8 h-8 text-yellow-500' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                    <svg className='w-8 h-8 text-themeYDark' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16M4 18h16'></path>
                     </svg>
                 </button>
@@ -45,11 +45,11 @@ const Nav = () => {
                     </svg>
                 </button>
                 <ul className='flex flex-col items-start gap-6 p-8 pt-16'>
-                    <NavLink to="/" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-yellow-500'><li>Home</li></NavLink>
-                    <NavLink to="/about" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-yellow-500'><li>About</li></NavLink>
-                    <NavLink to="/access-control" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-yellow-500'><li>Access Control</li></NavLink>
-                    <NavLink to="/fire-alarms" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-yellow-500'><li>Fire Alarms</li></NavLink>
-                    <NavLink to="/cctv" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-yellow-500'><li>CCTV</li></NavLink>
+                    <NavLink to="/" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Home</li></NavLink>
+                    <NavLink to="/about" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>About</li></NavLink>
+                    <NavLink to="/access-control" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Access Control</li></NavLink>
+                    <NavLink to="/fire-alarms" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Fire Alarms</li></NavLink>
+                    <NavLink to="/cctv" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>CCTV</li></NavLink>
                     <ContactButton />
                 </ul>
             </div>
