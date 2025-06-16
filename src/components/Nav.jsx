@@ -6,9 +6,9 @@ const t_size = 0.6; // in rem
 
 const ContactButton = () => {
     return (
-        <button className={`text-[${t_size}rem] relative overflow-hidden text-themeY border p-1 pr-6 pl-6 ml-20 border-themeY/50 rounded transition-colors duration-300 group`}>
+        <button className={`text-[${t_size + 0.05}rem] relative overflow-hidden text-[#EDD569] bg-black font-light border p-2 pr-7 pl-7 ml-48 border-themeY/80 rounded transition-colors duration-300`}>
             <span className="absolute inset-0 w-full h-full bg-themeYDark scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0"></span>
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact Us</span>
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact us</span>
         </button>
     )
 }
@@ -16,7 +16,7 @@ const ContactButton = () => {
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     return (
-        <nav className='flex justify-evenly items-center p-40 md:p-8'>
+        <nav className='flex justify-evenly items-center p-10 md:pr-0 border'>
             <img src={logo} alt='Company Logo' className='h-8 pr-28' />
             {/* Desktop Nav */}
             <ul className={`hidden md:flex justify-center gap-10 text-[${t_size}rem]`}>
