@@ -146,7 +146,7 @@ const Home = () => {
                     <div className='flex-1 ml-0 lg:ml-4 flex flex-col items-center lg:items-start'>
                         <img src={section2Img} alt="" className='mt-0 w-full max-w-[300px] lg:max-w-none'
                             style={{ scale: 0.8 }} />
-                        <p className='relative text-white text-center lg:text-left lg:origin-top-left lg:left-[4.9rem] lg:transform lg:-rotate-90 lg:-top-[17rem] tracking-wide lg:tracking-[0.32rem] font-semibold text-sm lg:text-[1.1rem] mt-4 lg:mt-0'>5+ Years of Experience</p>
+                        <p className='relative text-white text-xs -top-[13rem] -left-[6.8rem] lg:text-left lg:origin-top-left lg:left-[4.9rem] -rotate-90 lg:-top-[17rem] tracking-wide lg:tracking-[0.32rem] font-semibold lg:text-[1.1rem] mt-4 lg:mt-0'>5+ Years of Experience</p>
                     </div>
 
                     <div className='flex-1 mt-4 lg:mt-[4.3rem] px-0'>
@@ -160,11 +160,11 @@ const Home = () => {
                         </div>
                         <div className='flex flex-col lg:flex-row mt-8 lg:mt-14 gap-6 lg:gap-0'>
                             <div className='text-center lg:text-left'>
-                                <h2 className='text-[#CEB551] flex gap-3 lg:gap-5 ml-0 lg:ml-1 pb-2 text-sm font-semibold justify-center lg:justify-start'><img src={star} alt="" className='h-3 w-3 mt-1' /> Our Expertise</h2>
+                                <h2 className='text-[#CEB551] flex gap-3 lg:gap-5 ml-0 lg:ml-1 pb-2 text-sm font-semibold justify-start'><img src={star} alt="" className='h-3 w-3 mt-1' /> Our Expertise</h2>
                                 <p className='pl-0 lg:pl-9 pr-4 lg:pr-[7.5rem] text-center lg:text-left text-xs lg:text-[0.65rem]'>Tailored HR solutions to match your business needs, ensuring efficiency and compliance.</p>
                             </div>
                             <div className='text-center lg:text-left'>
-                                <h2 className='text-[#CEB551] flex gap-3 lg:gap-5 ml-0 lg:ml-1 pb-2 text-sm font-semibold justify-center lg:justify-start'><img src={star} alt="" className='h-3 w-3 mt-1' /> Global Reach</h2>
+                                <h2 className='text-[#CEB551] flex gap-3 lg:gap-5 ml-0 lg:ml-1 pb-2 text-sm font-semibold justify-start'><img src={star} alt="" className='h-3 w-3 mt-1' /> Global Reach</h2>
                                 <p className='pl-0 lg:pl-9 pr-4 lg:pr-[3.45rem] text-center lg:text-left text-xs lg:text-[0.65rem]'>Bringing global expertise with operations in the Gulf, India, Pakistan, and the USA.</p>
                             </div>
                         </div>
@@ -190,26 +190,29 @@ const Home = () => {
             </section>            {/* sec4 */}
             <section className='flex flex-col xl:flex-row pt-8 lg:pt-14 flex-wrap px-4 lg:px-0 w-full'>
                 <div className='flex flex-col justify-center items-center sm:flex-row'>
-                    <div className='pt-10 pb-10 max-w-[30rem] m-5 sm:ml-36 sm:mr-16'>
+                    <div className='pt-10 pb-10 max-w-[30rem] m-5 sm:ml-36'>
                         <h1 className=' text-left text-xl pb-2 text-[#CEB551]'>Why Choose AM Global</h1>
                         <p className='text-xl font-semibold sm:text-[2.2rem] text-left leading-[2.8rem]'>Trusted HR Solutions Tailored for Your <span className='text-[#CEB551]'>Success</span></p>
                     </div>
                     <div className='flex-1 pt-14 pb-10'>
-                        <p className=' border-[#606060] -m-10 border-l p-2 mr-[5.5rem] pl-10 text-left text-[0.8rem] font-light'>AM Global has a proven track record of providing high-quality HR outsourcing and manpower  supply  solutions to businesses of all sizes. We  are the leading  provider of HR  outsourcing  services in  the UAE  and provide  top-notch  Manpower  Supply, HR Outsourcing, and Recruitment Services to our clients.</p>
+                        <p className=' border-[#606060] ml-8 mr-10 pl-5 border-l-2 sm:m-10 sm:ml-0 sm:border-l sm:p-2 sm:mr-[5.5rem] sm:pl-10 text-left text-[0.8rem] font-light'>AM Global has a proven track record of providing high-quality HR outsourcing and manpower  supply  solutions to businesses of all sizes. We  are the leading  provider of HR  outsourcing  services in  the UAE  and provide  top-notch  Manpower  Supply, HR Outsourcing, and Recruitment Services to our clients.</p>
                     </div>
                 </div>
                 <div className='flex flex-col justify-center contents-center sm:flex-row sm:mt-2'>
-                    <img className='flex-1 max-w-[40rem] h-auto scale-105' src={section4Logo} alt="" />
+                    <img className='flex-1 max-w-[40rem] h-auto scale-105 mr-10 sm:m-0' src={section4Logo} alt="" />
                     <div className='flex-1 flex flex-col'>
-                        <h1 className='text-xl font-bold pr-40 lg:pr-60 sm:text-[2.2rem] pt-20 leading-10 text-left'>Find the Right Solution for Your <span className='text-[#CEB551]'>Business Today!</span></h1>
+                        <h1 className='text-xl font-bold pr-10 lg:pr-60 sm:text-[2.2rem] pt-20 leading-10 text-left'>Find the Right Solution for Your <span className='text-[#CEB551]'>Business Today!</span></h1>
                         <div className='border-l border-[#CEB551] pl-10 pr-3 lg:pr-[6rem] opacity mt-14'>
                             <p className='mb-8 text-left pl-2 text-sm font-extralight'>A M Global   is  one  of  the  top  outsourcing  agencies  that  offer  cutting-edge solutions for all your HR requirements. A M Global covering all the seven emirates and  with  plans  of  expansion  to  the  GCC. We  have experienced  work  force deployed across various industry segments and an employee pool with a mix of nationalities. </p>
                             <p className='text-left pl-2 text-sm font-extralight pr-3'>By  providing exemplary  services  we aim to focus on  providing value to  both to our clients and employees. This has helped us gain and  maintain  good business relationship  with  our  existing  clients  and  we  hope to  continue doing  so  in  the future.</p>
                         </div>
-                        <button className='bg-[#CEB551] text-white w-32 rounded p-2 pr-0 pl-0 sm:ml-12 text-md mt-14 self-start text-xs transition-none-all ease-in-out delay-100 hover:bg-[#CEB551]/90'>Learn More</button>
+                        <button className='bg-[#CEB551] text-white w-32 rounded p-2 pr-0 pl-0 m-10 sm:ml-12 text-md mt-14 self-start text-xs transition-none-all ease-in-out delay-100 hover:bg-[#CEB551]/90'>Learn More</button>
                     </div>
                 </div>
-            </section>            {/* sec5 */}            <section className="relative bg-cover bg-center h-auto w-full pb-16 lg:pb-28 pt-12 lg:pt-32 flex flex-col justify-evenly content-evenly px-4 lg:px-0"
+            </section>
+
+            {/* sec5 */}
+            <section className="relative bg-cover bg-center h-auto w-full pb-16 lg:pb-28 pt-12 lg:pt-32 flex flex-col justify-evenly content-evenly px-4 lg:px-0"
                 style={{ backgroundImage: `url(${section5Pattern})` }}
             >
                 <div className="absolute inset-0 bg-white/15"></div>
