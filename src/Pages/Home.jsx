@@ -1,49 +1,61 @@
 import React from 'react'
-import homeYellowSquare from '../assets/homeYellowSquare.png'
-import homeBlackSquare from '../assets/homeBlackSquare.png'
-import homeTopBackground from '../assets/homeTopBackground.jpg'
-import homeWhitePatternDesign from '../assets/homeWhitePatternDesing.png'
-import homeSection1Pattern from '../assets/homeSection1Pattern.png'
-import TailoredHrSolutionsLogo from '../assets/featuresLogo/TailoredHrSolutionsLogo.png'
-import globalExpertiseLogo from '../assets/featuresLogo/globalExpertiseLogo.png'
-import EffeciencyAndComplianceLogo from '../assets/featuresLogo/EffeciencyAndComplianceLogo.png'
-import section2Img from '../assets/section2Img.png'
-import star from '../assets/star.png'
+import homeYellowSquare from '../assets/homePageAssets/homeYellowSquare.png'
+import homeBlackSquare from '../assets/homePageAssets/homeBlackSquare.png'
+import homeTopBackground from '../assets/homePageAssets/homeTopBackground.jpg'
+import homeWhitePatternDesign from '../assets/homePageAssets/homeWhitePatternDesing.png'
+import homeSection1Pattern from '../assets/homePageAssets/homeSection1Pattern.png'
+import TailoredHrSolutionsLogo from '../assets/homePageAssets/featuresLogo/TailoredHrSolutionsLogo.png'
+import globalExpertiseLogo from '../assets/homePageAssets/featuresLogo/globalExpertiseLogo.png'
+import EffeciencyAndComplianceLogo from '../assets/homePageAssets/featuresLogo/EffeciencyAndComplianceLogo.png'
+import section2Img from '../assets/homePageAssets/section2Img.png'
+import star from '../assets/homePageAssets/star.png'
 import FeaturesCard from '../components/FeaturesCard'
 import ServicesCard from '../components/ServicesCard'
-import manPowerSupplyLogo from '../assets/servicesLogo/manPowerSupplyLogo.png'
-import peoServicesLogo from '../assets/servicesLogo/peoServicesLogo.png'
-import hrOutsourcingLogo from '../assets/servicesLogo/hrOutsourcingLogo.png'
-import itStaffingLogo from '../assets/servicesLogo/itStaffingLogo.png'
-import payrollServicesLogo from '../assets/servicesLogo/payrollServicesLogo.png'
-import recruitmentServicesLogo from '../assets/servicesLogo/recruitmentServicesLogo.png'
-import section4Logo from '../assets/section4Logo.png'
-import section5Pattern from '../assets/section5Assets/section5Pattern.png'
-import section5CrescentPattern from '../assets/section5Assets/section5CrescentPattern.png'
-import section5pics from '../assets/section5Assets/section5pics.png'
-import section7Background from '../assets/section7Background.png'
-import automation from '../assets/sec6Images/automation.png'
-import aviation from '../assets/sec6Images/aviation.png'
-import financeAndBanking from '../assets/sec6Images/financeAndBanking.png'
-import foodAndIndustry from '../assets/sec6Images/foodAndIndustry.png'
-import marineAndShipping from '../assets/sec6Images/marineAndShipping.png'
-import oilAndGasEnergy from '../assets/sec6Images/oilAndGasEnergy.png'
-import technologyAndIT from '../assets/sec6Images/technologyAndIT.png'
+import manPowerSupplyLogo from '../assets/homePageAssets/servicesLogo/manPowerSupplyLogo.png'
+import peoServicesLogo from '../assets/homePageAssets/servicesLogo/peoServicesLogo.png'
+import hrOutsourcingLogo from '../assets/homePageAssets/servicesLogo/hrOutsourcingLogo.png'
+import itStaffingLogo from '../assets/homePageAssets/servicesLogo/itStaffingLogo.png'
+import payrollServicesLogo from '../assets/homePageAssets/servicesLogo/payrollServicesLogo.png'
+import recruitmentServicesLogo from '../assets/homePageAssets/servicesLogo/recruitmentServicesLogo.png'
+import section4Logo from '../assets/homePageAssets/section4Logo.png'
+import section5Pattern from '../assets/homePageAssets/section5Assets/section5Pattern.png'
+import section5CrescentPattern from '../assets/homePageAssets/section5Assets/section5CrescentPattern.png'
+import section5pics from '../assets/homePageAssets/section5Assets/section5pics.png'
+import section7Background from '../assets/homePageAssets/section7Background.png'
+import automation from '../assets/homePageAssets/sec6Images/automation.png'
+import aviation from '../assets/homePageAssets/sec6Images/aviation.png'
+import financeAndBanking from '../assets/homePageAssets/sec6Images/financeAndBanking.png'
+import foodAndIndustry from '../assets/homePageAssets/sec6Images/foodAndIndustry.png'
+import marineAndShipping from '../assets/homePageAssets/sec6Images/marineAndShipping.png'
+import oilAndGasEnergy from '../assets/homePageAssets/sec6Images/oilAndGasEnergy.png'
+import technologyAndIT from '../assets/homePageAssets/sec6Images/technologyAndIT.png'
 
-//for sec0
-const StartApplyingBtn = ({ hover_c, txt }) => {
+import { useNavigate } from 'react-router-dom'
+
+// /for sec0
+const StartApplyingBtn = ({ hover_c, txt, url }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        if (url) {
+            navigate(url);
+        } else {
+            console.log('no url for this btn-', txt);
+        }
+    }
+
     return (
-        <button className={`font-extrabold mt-2 text-xs bg-white text-black p-2 lg:p-3 px-6 lg:px-10 transition-all ${hover_c} hover:text-white ease-in-out duration-500`}>{txt}</button>
+        <button onClick={handleClick} className={`font-extrabold mt-2 text-xs bg-white text-black p-2 lg:p-3 px-6 lg:px-10 transition-all ${hover_c} hover:text-white ease-in-out duration-500`}>{txt}</button>
     )
 }
 
 const Home = () => {
-    //Features Desc
+    // /Features Desc
     const tailoredHrSolDescription = 'Provide customized HR and staffing solutions, meeting the unique needs of diverse industries and business sizes.'
     const globalExpertiseDescription = 'Leverage extensive experience across Gulf countries, India, Pakistan, and the USA to deliver exceptional results.'
     const efficiencyAndComplianceDescription = 'Streamline processes with WPS-compliant payroll and HR services, reducing costs and ensuring regulatory adherence.'
 
-    //Services Desc
+    // / Services Desc
     const manPowerSupplyDescription = 'We provide a comprehensive range of manpower solutions to help businesses stay staffed and productive.'
     const peoServicesDescription = 'Our PEO services can help businesses save time and money while reducing compliance risks.'
     const hrOutsourcingDescription = 'Our team of HR professionals can take on all your HR needs, from payroll to benefits administration.'
@@ -67,7 +79,7 @@ const Home = () => {
                                     <h2 className='text-lg font-bold leading-tight px-2'><strong>We help candidates find their perfect job</strong></h2>
                                     <p className='text-xs font-light px-2'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>
                                     <div className='pt-2'>
-                                        <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} />
+                                        <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} url='/jobs' />
                                     </div>
                                 </div>
                             </div>
@@ -83,9 +95,8 @@ const Home = () => {
                             <div className='absolute inset-0 flex flex-col justify-center items-center pt-16 px-4'>
                                 <div className='space-y-3 text-center'>
                                     <h2 className='text-lg font-bold leading-tight px-2'><strong>We provide staffing Solution to our clients</strong></h2>
-                                    <p className='text-xs font-light px-2'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>
-                                    <div className='pt-2'>
-                                        <StartApplyingBtn hover_c='hover:bg-themeYDark' txt={'View Services'} />
+                                    <p className='text-xs font-light px-2'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>                                    <div className='pt-2'>
+                                        <StartApplyingBtn hover_c='hover:bg-themeYDark' txt={'View Services'} url='/services' />
                                     </div>
                                 </div>
                             </div>
@@ -102,9 +113,8 @@ const Home = () => {
                             <div className='text-start tracking-wide ml-44'>
                                 <h2 className='mb-4 pr-24 text-4xl'><strong>We help candidates find their perfect job</strong></h2>
                                 <p className='mb-8 text-sm pr-16 font-light'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>
-                            </div>
-                            <div className='flex justify-center lg:justify-start lg:ml-44 pr-5'>
-                                <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} />
+                            </div>                            <div className='flex justify-center lg:justify-start lg:ml-44 pr-5'>
+                                <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} url='/jobs' />
                             </div>
                         </div>
                     </div>
@@ -115,9 +125,8 @@ const Home = () => {
                             <div className='text-start tracking-wide mr-28'>
                                 <h2 className='mb-4 pl-28 text-4xl'><strong>We provide staffing Solution to our clients</strong></h2>
                                 <p className='mb-8 text-sm pl-28 font-light'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>
-                            </div>
-                            <div className='flex justify-center pr-[17.5rem]'>
-                                <StartApplyingBtn hover_c='hover:bg-themeYDark' txt={'View Services'} />
+                            </div>                            <div className='flex justify-center pr-[17.5rem]'>
+                                <StartApplyingBtn hover_c='hover:bg-themeYDark' txt={'View Services'} url='/services' />
                             </div>
                         </div>
                     </div>

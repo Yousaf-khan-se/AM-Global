@@ -16,7 +16,7 @@ const ContactButton = () => {
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     return (
-        <nav className='w-full flex justify-between items-center p-4 md:p-10 bg-black z-30 relative'>
+        <nav className='fixed w-full flex sm:justify-evenly justify-between items-center p-4 md:p-10 bg-black/70 z-30'>
             <img src={logo} alt='Company Logo' className='h-8 md:pr-28' />
             {/* Desktop Nav */}
             <ul className={`hidden md:flex justify-center gap-6 lg:gap-10 text-[${t_size}rem]`}>
