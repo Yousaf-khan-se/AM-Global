@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
-        <nav className='pb-4 lg:pb-8 w-full'>
+        <nav className='pb-4 lg:pb-8 w-full bg-black'>
             {/* Main Footer Content */}
             <div className='flex flex-col lg:flex-row justify-center lg:justify-evenly gap-8 lg:gap-4 items-center px-4 lg:px-0 pb-5 pt-16 lg:pt-28'>
                 {/* Logo Section */}

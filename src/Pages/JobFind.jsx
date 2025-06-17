@@ -83,29 +83,61 @@ const JobFind = () => {
             </section>
 
             {/* sec3 */}
-            <section className='bg-white/50'>
-                <div>
-                    <h1 className='#C2A441'>Get Started</h1>
-                    <h2>Apply Now</h2>
-                    <ul>
-                        <li>Your resume</li>
-                        <li>Your ambitions</li>
-                        <li>Your selection of conversations</li>
-                        <li>Your job choice</li>
+            <section className='md:min-h-[140vh] w-full pt-20 pb-20 bg-white/[0.13] flex justify-evenly items-center flex-wrap'>
+                <div className='flex flex-col justify-center items-start gap-4 md:-mt-80 mb-10 md:mb-0 px-4 md:px-0'>
+                    <h1 className='text-[#C2A441]/90 md:text-[1.8rem] text-[1rem] font-semibold'>Get Started</h1>
+                    <h2 className='mb-20 md:text-[2.5rem] text-[1.5rem] font-semibold'>Apply Now</h2>
+                    <ul className='border-l pl-8 border-white/50 border-dashed flex flex-col justify-center items-start gap-8 md:text-[1.5rem] text-[1rem] list-none'>
+                        <li className="relative flex items-start gap-4">
+                            <span className='absolute -left-[2.65rem] -top-2 w-5 h-5 mt-2 block rounded-full bg-gradient-to-br from-[#EDD569] to-[#977619]'></span>
+                            <p className='-mt-2'>Your resume</p>
+                        </li>
+                        <li className="relative flex items-start gap-4">
+                            <span className='absolute -left-[2.65rem] w-5 h-5 mt-2 block rounded-full bg-gradient-to-br from-[#EDD569] to-[#977619]'></span>
+                            Your ambitions
+                        </li>
+                        <li className="relative flex items-start gap-4">
+                            <span className='absolute -left-[2.65rem] w-5 h-5 mt-2 block rounded-full bg-gradient-to-br from-[#EDD569] to-[#977619]'></span>
+                            Your selection of conversations
+                        </li>
+                        <li className="relative flex items-start gap-4">
+                            <span className='absolute -left-[2.65rem] top-2 w-5 h-5 block rounded-full bg-gradient-to-br from-[#EDD569] to-[#977619]'></span>
+                            <p className='-mb-2'>Your job choice</p>
+                        </li>
                     </ul>
                 </div>
-                <div>
-                    <form action="">
-                        <span className='bg-gradient-to-br from-[#EDD569] to-[#977619]'>+</span>
-                        <legend>Upload Your CV</legend>
-                        <input type="text" placeholder='Surname' />
-                        <input type="text" placeholder='Email' />
-                        <input type="text" placeholder='Phone' />
-                        <textarea name="Message" id="" cols="5"></textarea>
-                        <button type="submit" className='bg-gradient-to-r from-[#EDD569] to-[#977619]'>Submit</button>
-                    </form>
-                    <div>
-                        <p><img src={lock} alt="" />We handle your data confidentially</p>
+
+                <div className='flex flex-col'>
+                    <div className='p-[0.08rem] bg-gradient-to-br from-white/30 to-[#191919] rounded-3xl bg-black md:mt-0 mt-5'>
+                        <form action=""
+                            className='bg-black z-10 relative md:w-[35vw] md:h-[110vh] flex flex-col justify-around items-center gap-5 rounded-3xl bg-gradient-to-br from-[#484848]/60 to-[#1E1E1E] pt-5 p-10'
+                        >
+                            <div className='absolute right-[3.2rem] top-[5rem] -z-20'><img src={Circles} alt="section 1 background" className='scale-y-125 scale-x-150' /></div>
+
+                            <div className='md:-ml-24 flex justify-center items-center gap-2 md:gap-8 mb-5'>
+                                <div className='rounded-full h-16 w-16 md:h-24 md:w-24 text-[2.8rem] font-semibold bg-black pb-2 flex justify-center items-center text-center bg-gradient-to-br from-[#EDD569]/95 to-[#977619]/95'>+</div>
+                                <legend className='md:text-[1.8rem] text-[1rem] text-[#C6AA45] text-center pb-2 font-semibold'>Upload Your CV</legend>
+                            </div>
+                            {
+                                [{ t: 'text', ph: 'Surname' },
+                                { t: 'text', ph: 'Email' },
+                                { t: 'text', ph: 'Phone' },
+                                { t: 'textarea', ph: 'Message' }
+
+                                ].map((input, index) => (
+                                    input.t === 'text' ? (
+                                        <input key={index} type="text" placeholder={input.ph} className='pl-5 md:text-lg w-full max-w-[29rem] h-full max-h-[3.5rem] p-2 rounded-md bg-white/[0.08] text-white placeholder:text-white/65 placeholder:font-extralight' />
+                                    ) : (
+                                        <textarea key={index} placeholder={input.ph} className='pl-5 md:text-lg w-full max-w-[29rem] h-full max-h-[12rem] p-2 rounded-md bg-white/[0.08] text-white placeholder:text-white/65 placeholder:font-extralight' />
+                                    )
+                                ))
+                            }
+                            <button type="submit" className='bg-gradient-to-b from-[#EDD569]/70 to-[#977619]/90 pt-2 pb-2 pr-[4rem] pl-[4rem] rounded-lg m-10 mt-5 text-lg bg-yellow-400 text-white/70 font-semibold'>Submit</button>
+                        </form>
+                    </div>
+                    <div className='flex text-sm font-extralight opacity-85 justify-center items-center p-6 gap-2'>
+                        <img src={lock} alt="confidential logo" className='scale-75' />
+                        <p>We handle your data confidentially</p>
                     </div>
                 </div>
             </section>
