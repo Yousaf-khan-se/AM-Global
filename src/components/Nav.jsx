@@ -6,9 +6,9 @@ const t_size = 0.6; // in rem
 
 const ContactButton = () => {
     return (
-        <button className={`text-[${t_size + 0.05}rem] relative overflow-hidden text-[#EDD569] bg-black font-light border p-2 pr-7 pl-7 ml-48 border-themeY/80 rounded transition-colors duration-300`}>
+        <button className={`text-[${t_size}rem] relative overflow-hidden text-[#EDD569] border p-2 pr-7 pl-7 md:ml-48 border-themeY/50 rounded transition-colors duration-300 group`}>
             <span className="absolute inset-0 w-full h-full bg-themeYDark scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 z-0"></span>
-            <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact us</span>
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300">Contact Us</span>
         </button>
     )
 }
@@ -16,10 +16,10 @@ const ContactButton = () => {
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     return (
-        <nav className='flex justify-evenly items-center p-10 md:pr-0 border'>
-            <img src={logo} alt='Company Logo' className='h-8 pr-28' />
+        <nav className='w-full flex justify-between items-center p-4 md:p-10 bg-black z-30 relative'>
+            <img src={logo} alt='Company Logo' className='h-8 md:pr-28' />
             {/* Desktop Nav */}
-            <ul className={`hidden md:flex justify-center gap-10 text-[${t_size}rem]`}>
+            <ul className={`hidden md:flex justify-center gap-6 lg:gap-10 text-[${t_size}rem]`}>
                 <NavLink to="/" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark' end><li>Home</li></NavLink>
                 <NavLink to="/about" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>About</li></NavLink>
                 <NavLink to="/access-control" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Access Control</li></NavLink>
@@ -38,7 +38,7 @@ const Nav = () => {
                 </button>
             )}
             {/* Mobile Sliding Menu */}
-            <div className={`fixed top-0 right-0 h-full w-2/3 bg-black shadow-lg transform transition-transform duration-300 ease-in-out z-10 ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden text-white`}>
+            <div className={`fixed top-0 right-0 h-full w-2/3 bg-black shadow-lg transform transition-transform duration-300 ease-in-out z-30 ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden text-white`}>
                 <button className='absolute top-4 right-4' onClick={() => setMenuOpen(false)} aria-label="Close Menu">
                     <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12'></path>

@@ -11,15 +11,15 @@ const ServicesCard = ({ heading, text, cardLogo, color, flexWidth, h }) => {
     }
 
     return (
-        <div className={`${h} border-2 border-white/5 bg-gradient-to-br ${grad.from} ${grad.to} bg-black sm:flex-${flexWidth ? '[' + flexWidth + ']' : '1'} max-w-64 rounded-2xl p-1 ${flexWidth === '2' ? 'sm:max-w-[32rem]' : 'sm:max-w-60 sm:p-0 sm:pt-1 sm:pb-2 font-extralight'}`}>
+        <div className={`${h} border-2 border-white/5 bg-gradient-to-br ${grad.from} ${grad.to} bg-black w-full lg:w-auto ${flexWidth === '2' ? 'lg:flex-[2] lg:max-w-[32rem]' : 'lg:flex-1 lg:max-w-60'} max-w-64 rounded-2xl p-3 lg:p-1 ${flexWidth === '2' ? '' : 'lg:pt-1 lg:pb-3'} font-extralight`}>
             {
                 cardLogo && (
-                    <img className='w-14 h-14 relative top-2 left-2 sm:w-16 sm:h-16 sm:top-3 sm:left-4 mb-4' src={cardLogo} alt="card logo" />
+                    <img className='w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 relative top-1 lg:top-2 xl:top-3 left-1 lg:left-2 xl:left-4 mb-3 lg:mb-4' src={cardLogo} alt="card logo" />
                 )
             }
-            <h2 className='font-bold ml-5 mr-40 mb-2 text-left text-xl sm:text-xl'>{heading}</h2>
-            <p className='text-left ml-5 mr-5 mb-5 text-[0.74rem] opacity-90'>{text}</p>
-        </div >
+            <h2 className='font-bold ml-3 lg:ml-5 mr-10 lg:mr-40 mb-2 text-left text-lg lg:text-xl'>{heading}</h2>
+            <p className='text-left ml-3 lg:ml-5 mr-3 lg:mr-5 mb-3 lg:mb-5 text-xs lg:text-[0.74rem] opacity-90'>{text}</p>
+        </div>
     )
 }
 
