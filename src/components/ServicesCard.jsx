@@ -23,4 +23,4 @@ const ServicesCard = ({ heading, text, cardLogo, color, flexWidth, h }) => {
     )
 }
 
-export default ServicesCard
+export default React.memo(ServicesCard);

@@ -16,4 +16,4 @@ const FeatureCard = ({ heading, text, cardLogo, themeNo }) => {
     )
 }
 
-export default FeatureCard
+export default React.memo(FeatureCard);

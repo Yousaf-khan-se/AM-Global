@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Circles from '../assets/JobFindAssets/Circles.png'
 import BG from '../assets/JobFindAssets/BG.png'
 import experience from '../assets/JobFindAssets/sec1Logos/experience.png'
@@ -9,10 +9,74 @@ import skills from '../assets/JobFindAssets/sec1Logos/skills.png'
 import workingHours from '../assets/JobFindAssets/sec1Logos/workingHours.png'
 import lock from '../assets/JobFindAssets/lock.png'
 import section1Bg from '../assets/JobFindAssets/section1Bg.png'
+import emailjs from 'emailjs-com'
+
+import { useRef } from 'react'
+
+const popUp = (msg) => {
+
+    return (
+        <div className='fixed bottom-40 right-0 z-20 bg-white/30 text-white p-10 rounded-xl'>
+            <p>{msg}</p>
+        </div>
+    )
+}
 
 const JobFind = () => {
+    const formRef = useRef();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [showPopUp, setShowPopUp] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+        console.log('Selected file:', file);
+    }; const handleFileChangeSm = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+        console.log('Selected file:', file);
+
+        if (formRef.current) {
+            // First scroll to the form
+            formRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            setTimeout(() => {
+                const firstTextInput = formRef.current.querySelector('input[type="text"]');
+                firstTextInput?.focus();
+            }, 500); // Wait 500ms for smooth scroll to complete
+        }
+    };
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        emailjs.sendForm('service_t63pfwm', 'template_138la2o', formRef.current, '1xuPdsS-jfnmMFW-Z')
+            .then((result) => {
+                console.log('Email sent to user Successfully!', result)
+                setError(null);
+            })
+            .catch((error) => {
+                console.log('Error sending email:', error)
+                setError('Error sending email')
+            })
+            .finally(() => {
+                setLoading(false)
+                setShowPopUp(true);
+                setTimeout(() => { setShowPopUp(false) }, 5000)
+            })
+    }
+
     return (
         <div className="w-full min-h-screen">
+            {
+                showPopUp && popUp(`${error ? error : "Your Application is submitted successfully!"}`)
+            }
             {/* sec0 */}
             <section className='relative bg-cover bg-center w-screen h-[80vh] flex justify-start items-center'
                 style={{ backgroundImage: `url(${BG})` }}
@@ -21,9 +85,10 @@ const JobFind = () => {
                     <h1 className='text-[#B09130] md:text-[1.5rem] text-[1rem] font-semibold -mb-5'>Submit Your CV</h1>
                     <h2 className='md:text-[2.5rem] text-[1.5rem] font-bold md:pr-40'>Upload your resume & apply for your <span className='text-[#CBB04A]'>ideal job</span> .</h2>
                     <button className='flex flex-grow flex-shrink justify-end items-center rounded md:w-[165px] md:h-[50px] w-[80px] h-[25px] bg-gradient-to-r from-[#EDD569] to-[#977619]'>
-                        <span className='flex justify-center items-center text-black bg-white rounded-full md:w-[1.5em] md:h-[1.5em] w-[1em] h-[1em] md:mr-4 mr-2 pb-1 font-extrabold text-sm md:text-lg leading-none'>
+                        <label htmlFor='file-upload-sm' className='flex justify-center items-center text-black bg-white rounded-full md:w-[1.5em] md:h-[1.5em] w-[1em] h-[1em] md:mr-4 mr-2 pb-1 font-extrabold text-sm md:text-lg leading-none'>
                             +
-                        </span>
+                        </label>
+                        <input required id="file-upload-sm" type="file" accept=".pdf,.doc,.docx" className='hidden' onChange={handleFileChangeSm} />
                     </button>
                 </div>
             </section>
@@ -109,30 +174,33 @@ const JobFind = () => {
 
                 <div className='flex flex-col'>
                     <div className='p-[0.08rem] bg-gradient-to-br from-white/30 to-[#191919] rounded-3xl bg-black md:mt-0 mt-5'>
-                        <form action=""
+                        <form action="" ref={formRef} onSubmit={sendEmail}
                             className='bg-black z-10 relative md:w-[35vw] md:h-[110vh] flex flex-col justify-around items-center gap-5 rounded-3xl bg-gradient-to-br from-[#484848]/60 to-[#1E1E1E] pt-5 p-10'
                         >
-                            <div className='absolute right-[3.2rem] top-[5rem] -z-20'><img src={Circles} alt="section 1 background" className='scale-y-125 scale-x-150' /></div>
-
-                            <div className='md:-ml-24 flex justify-center items-center gap-2 md:gap-8 mb-5'>
-                                <div className='rounded-full h-16 w-16 md:h-24 md:w-24 text-[2.8rem] font-semibold bg-black pb-2 flex justify-center items-center text-center bg-gradient-to-br from-[#EDD569]/95 to-[#977619]/95'>+</div>
-                                <legend className='md:text-[1.8rem] text-[1rem] text-[#C6AA45] text-center pb-2 font-semibold'>Upload Your CV</legend>
+                            <div className='absolute right-[3.2rem] top-[5rem] -z-20'><img src={Circles} alt="section 1 background" className='scale-y-125 scale-x-150' /></div>                            <div className='md:-ml-24 flex justify-center items-center gap-2 md:gap-8 mb-5'>
+                                <label htmlFor="file-upload" className='cursor-pointer rounded-full h-16 w-16 md:h-24 md:w-24 text-[2.8rem] font-semibold bg-black pb-2 flex justify-center items-center text-center bg-gradient-to-br from-[#EDD569]/95 to-[#977619]/95'>
+                                    {selectedFile ? '✓' : '+'}
+                                </label>
+                                <input id="file-upload" type="file" accept=".pdf,.doc,.docx" className='hidden' onChange={handleFileChange} required={!selectedFile} />
+                                <legend className={`md:text-[1.8rem] text-[1rem] text-[#C6AA45] text-center pb-2 font-semibold`}>
+                                    {selectedFile ? `${selectedFile.name}` : 'Upload Your CV'}
+                                </legend>
                             </div>
                             {
-                                [{ t: 'text', ph: 'Surname' },
-                                { t: 'text', ph: 'Email' },
+                                [{ t: 'text', ph: 'Surname', n: 'name' },
+                                { t: 'text', ph: 'Email', n: 'user_email' },
                                 { t: 'text', ph: 'Phone' },
                                 { t: 'textarea', ph: 'Message' }
 
                                 ].map((input, index) => (
                                     input.t === 'text' ? (
-                                        <input key={index} type="text" placeholder={input.ph} className='pl-5 md:text-lg w-full max-w-[29rem] h-full max-h-[3.5rem] p-2 rounded-md bg-white/[0.08] text-white placeholder:text-white/65 placeholder:font-extralight' />
+                                        <input required key={index} type="text" name={input?.n} placeholder={input.ph} className='pl-5 md:text-lg w-full max-w-[29rem] h-full max-h-[3.5rem] p-2 rounded-md bg-white/[0.08] text-white placeholder:text-white/65 placeholder:font-extralight' />
                                     ) : (
                                         <textarea key={index} placeholder={input.ph} className='pl-5 md:text-lg w-full max-w-[29rem] h-full max-h-[12rem] p-2 rounded-md bg-white/[0.08] text-white placeholder:text-white/65 placeholder:font-extralight' />
                                     )
                                 ))
                             }
-                            <button type="submit" className='bg-gradient-to-b from-[#EDD569]/70 to-[#977619]/90 pt-2 pb-2 pr-[4rem] pl-[4rem] rounded-lg m-10 mt-5 text-lg bg-yellow-400 text-white/70 font-semibold'>Submit</button>
+                            <button type="submit" className='bg-gradient-to-b from-[#EDD569]/70 to-[#977619]/90 pt-2 pb-2 pr-[4rem] pl-[4rem] rounded-lg m-10 mt-5 text-lg bg-yellow-400 text-white/70 font-semibold hover:bg-black'>{loading ? 'sending...' : 'Submit'}</button>
                         </form>
                     </div>
                     <div className='flex text-sm font-extralight opacity-85 justify-center items-center p-6 gap-2'>
@@ -141,7 +209,6 @@ const JobFind = () => {
                     </div>
                 </div>
             </section>
-            {/* <img src={Circles} alt="Circles" className='w-full h-auto' /> */}
         </div>
     )
 }
