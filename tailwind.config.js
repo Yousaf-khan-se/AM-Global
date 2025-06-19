@@ -12,6 +12,13 @@ export default {
         themeYTwo: 'rgba(237, 213, 105, 1)',
         themeYDarkTwo: 'rgba(151, 118, 25, 1)'
       },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+        assistant: ['Assistant', 'sans-serif'],
+        opensans: ['"Open Sans"', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],

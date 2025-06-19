@@ -3,6 +3,7 @@ import Nav from './components/Nav.jsx'
 import Home from './Pages/Home.jsx'
 import Footer from './components/Footer.jsx'
 import JobFind from './Pages/JobFind.jsx'
+import Apply from './Pages/Apply.jsx'
 import {
   BrowserRouter as Router,
   Route,
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/jobs" element={<JobFind />} />
+          <Route path="/apply" element={<Apply />} />
         </Routes>
       </div>
       <Footer />

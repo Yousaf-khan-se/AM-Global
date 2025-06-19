@@ -38,6 +38,7 @@ const StartApplyingBtn = ({ hover_c, txt, url }) => {
 
     const handleClick = () => {
         if (url) {
+            console.log(url);
             navigate(url);
         } else {
             console.log('no url for this btn-', txt);
@@ -66,7 +67,8 @@ const Home = () => {
     return (
         <div className="w-full overflow-x-hidden">
             {/* sec0 - Mobile First Hero Section */}
-            <section className='w-full bg-gray-900 py-8 lg:py-7 mobile-full-width'>                {/* Mobile Layout */}
+            <section className='w-full bg-gray-900 py-8 lg:py-7 mobile-full-width'>
+                {/* Mobile Layout */}
                 <div className='block lg:hidden w-full px-4'>
                     {/* Job Seeker Section - Mobile */}
                     <div className='mb-12 text-center relative'>
@@ -79,7 +81,7 @@ const Home = () => {
                                     <h2 className='text-lg font-bold leading-tight px-2'><strong>We help candidates find their perfect job</strong></h2>
                                     <p className='text-xs font-light px-2'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>
                                     <div className='pt-2'>
-                                        <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} url='/jobs' />
+                                        <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} url='/apply' />
                                     </div>
                                 </div>
                             </div>
