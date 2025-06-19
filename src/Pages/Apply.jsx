@@ -54,7 +54,8 @@ const Apply = () => {
     return (
         <div>
             {/* sec0 */}
-            <section className='z-20 relative flex justify-center items-start flex-col w-full min-h-[55vh] px-4 md:px-0'>                <div className='z-20 absolute inset-0 opacity-20 md:-top-24 overflow-hidden'><img src={sec0Bg} alt="" className='w-full h-auto object-cover' /></div>
+            <section className='z-20 relative flex justify-center items-start flex-col w-full min-h-[55vh] px-4 md:px-0'>
+                <div className='z-20 absolute inset-0 opacity-20 md:-top-24 overflow-hidden'><img src={sec0Bg} alt="" className='w-full h-auto object-cover' /></div>
                 <div className='z-20 absolute inset-0 md:-right-20 md:-top-24 overflow-hidden'><img src={sec0Pattern} alt="" className='scale-[0.8] w-full h-auto object-contain' /></div>
                 <div className='z-30 mx-4 md:mx-40 mt-52 md:mt-60 font-opensans relative flex flex-col justify-center items-start gap-4 md:gap-9 max-w-full'>
                     <h1 className='absolute transform rotate-[-17.13deg] -top-[1.2rem] md:-top-[2rem] -left-10 bg-gradient-to-b from-[#EDD569]/90 to-[#977619] bg-black rounded-lg font-semibold text-xs md:text-base w-[25vw] md:w-[11vw] pt-[0.4rem] pb-[0.4rem] text-center'>Apply Here</h1>

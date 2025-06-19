@@ -116,7 +116,7 @@ const Home = () => {
                                 <h2 className='mb-4 pr-24 text-4xl'><strong>We help candidates find their perfect job</strong></h2>
                                 <p className='mb-8 text-sm pr-16 font-light'>Concise talent management solutions that matches with a particular industry, geography, or business requirement.</p>
                             </div>                            <div className='flex justify-center lg:justify-start lg:ml-44 pr-5'>
-                                <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} url='/jobs' />
+                                <StartApplyingBtn hover_c='hover:bg-black' txt={'Start Applying'} url='/apply' />
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@ const Home = () => {
                     <ServicesCard heading='Manpower Supply' text={manPowerSupplyDescription} cardLogo={manPowerSupplyLogo} color='yellow' h='sm:min-h-60' />
                     <ServicesCard heading='PEO Services' text={peoServicesDescription} cardLogo={peoServicesLogo} h='sm:min-h-64' />
                     <ServicesCard heading='HR Outsourcing' text={hrOutsourcingDescription} cardLogo={hrOutsourcingLogo} h='sm:min-h-64' />
-                    <ServicesCard heading='Recruitment Services' text={recruitmentServicesDescription} cardLogo={recruitmentServicesLogo} h='sm:min-h-60' className='sm:min-h-64' />
+                    <ServicesCard heading='Recruitment Services' text={recruitmentServicesDescription} cardLogo={recruitmentServicesLogo} h='sm:min-h-60' />
                     <ServicesCard heading='IT Staffing' text={itStaffingDescription} cardLogo={itStaffingLogo} flexWidth='2' h='sm:min-h-60' />
                     <ServicesCard heading='Payroll Services' text={payrollServicesDescription} cardLogo={payrollServicesLogo} color='yellow' flexWidth='2' h='sm:min-h-[15.6rem]' />
                 </div>
