@@ -5,17 +5,17 @@ import formPic from '../assets/proposal/formPic.png'
 const Porposal = () => {
     return (
         <div>
-            <section className='relative flex flex-col justify-around items-center md:h-[120vh] h-auto  py-20'>
-                <div className='absolute top-40 md:h-[140vh]'><img src={bg} alt="" /></div>
-                <div className='absolute inset-0 md:h-[140vh] bg-white/[0.13]'></div>
+            <section className='relative flex flex-col justify-around items-center md:h-[150vh] h-auto  py-20'>
+                <div className='absolute md:top-52 md:h-[150vh]'><img src={bg} alt="" /></div>
+                <div className='absolute inset-0 md:h-[150vh] bg-white/[0.13]'></div>
                 <div className='text-center'>
-                    <h1 className='text-xl md:text-5xl font-bold mb-2 md:mb-8'>Request Proposal</h1>
-                    <p className='text-center opacity-90 md:w-[30vw] md:mb-20 mb-2'>Share details of the role you're looking to fill and we'll be in touch within 24 hours.</p>
+                    <h1 className='text-xl md:text-[2.5rem] font-extrabold m-2 md:mb-8'>Request Proposal</h1>
+                    <p className='md:text-center text-left md:ml-0 m-4 opacity-80 md:w-[30vw] md:mb-20 mb-2'>Share details of the role you're looking to fill and we'll be in touch within 24 hours.</p>
                 </div>
-                <div className='shadow-2xl shadow-black/5 md:p-10 p-2 rounded-xl flex md:flex-row flex-col justify-center items-center bg-[#272727] m-2 gap-2 md:gap-14 w-auto md:w-[80vw] h-atuo md:h-[110vw] z-10'>
-                    <form action="" className='md:ml-10 md:w-[40vw] md:h-full'>
+                <div className='shadow-2xl shadow-black/5 md:p-10 p-3 rounded-xl flex md:flex-row flex-col-reverse justify-center items-center bg-[#272727] m-2 gap-3 md:gap-10 w-auto md:w-[80vw] h-atuo md:h-[110vw] z-10'>
+                    <form action="" className='md:ml-10 md:w-[38vw] md:h-full'>
                         <h1 className='text-lg md:text-xl font-semibold mb-1'>Let's Connect </h1>
-                        <p className='font-extralight opacity-90 w-[24vw] text-xs'>Have questions or need support? Contact us today to discuss your HR needs. Our team is here to help.</p>
+                        <p className='font-extralight opacity-90 md:w-[24vw] text-xs'>Have questions or need support? Contact us today to discuss your HR needs. Our team is here to help.</p>
                         {/* field div */}
                         <div className='py-7 flex flex-col justify-center items-start gap-4 text-black'>
                             <div className='flex justify-start items-center gap-4 w-full'>
@@ -41,8 +41,8 @@ const Porposal = () => {
 
                         <button type='submit' className='mt-6 bg-gradient-to-r from-[#D5BB54]/90 to-[#977619] bg-[#977619] hover:bg-black py-2 md:w-[8vw] w-[20vw] text-xs rounded-full'>Submit</button>
                     </form>
-                    <div className=''>
-                        <img src={formPic} alt="" className='h-full max-h-[88vh]' />
+                    <div className='m-3'>
+                        <img src={formPic} alt="" className='h-full max-h-[92vh]' />
                     </div>
                 </div>
             </section>
