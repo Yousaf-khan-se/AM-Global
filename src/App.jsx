@@ -6,6 +6,7 @@ import JobFind from './Pages/JobFind.jsx'
 import Apply from './Pages/Apply.jsx'
 import Services from './Pages/Services.jsx'
 import Proposal from './Pages/Porposal.jsx'
+import JobFindSearchPage from './Pages/JobFindSearchPage.jsx'
 
 import {
   BrowserRouter as Router,
@@ -26,6 +27,7 @@ function App() {
           <Route path="/apply" element={<Apply />} />
           <Route path="/services" element={<Services />} />
           <Route path="/proposal" element={<Proposal />} />
+          <Route path="/jobfindsearch" element={<JobFindSearchPage />} />
         </Routes>
       </div>
       <Footer />

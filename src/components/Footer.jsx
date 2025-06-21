@@ -17,7 +17,7 @@ const Footer = () => {
             <div className='flex flex-col md:flex-row justify-center md:justify-evenly gap-8 md:gap-4 items-center px-4 md:px-0 pb-5 pt-16 md:pt-28'>
                 {/* Logo Section */}
                 <div className='flex justify-center md:block'>
-                    <img className='w-32 md:w-[55%] h-auto md:ml-14' src={AMGlobal} alt="AM Global" />
+                    <img className='w-20 md:w-[55%] h-auto md:ml-14' src={AMGlobal} alt="AM Global" />
                 </div>
 
                 {/* Contact and Social Media Section */}
@@ -27,22 +27,22 @@ const Footer = () => {
 
                     {/* Phone Numbers */}
                     <div className='font-extralight flex flex-col sm:flex-row justify-center gap-4 md:gap-[9.2rem] md:ml-14 mb-6 md:mb-0'>
-                        <p>(123) 456-7890</p>
+                        <p className='ml-1'>(123) 456-7890</p>
                         <p>(123) 456-7890</p>
                     </div>
 
                     {/* Social Media Section */}
-                    <div className='md:ml-[5rem] text-sm md:text-[0.75rem] font-extralight flex flex-col md:flex-row items-center md:justify-center gap-3 md:gap-[0.rem] p-3 md:p-10 md:pl-5'>
-                        <h1 className='opacity-50 mb-1 md:mb-0 md:pt-3 md:mr-2'>Social Media</h1>
-                        <div className='flex flex-wrap justify-center md:gap-1'>
-                            <Link><img src={facebook} alt="facebook" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={twitter} alt="twitter" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={linkedin} alt="linkedin" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={youtube} alt="youtube" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={instagram} alt="instagram" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={googleplus} alt="googleplus" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={pinterest} alt="pinterest" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
-                            <Link><img src={rss} alt="rss" className='scale-[0.6] md:scale-[0.7] hover:scale-[0.7] md:hover:scale-[0.8] transition-transform' /></Link>
+                    <div className='md:ml-[5rem] text-sm md:text-[0.75rem] font-extralight flex flex-col md:flex-row items-center md:justify-center gap-3 md:gap-[0.rem] p-3 md:p-7 md:pl-5'>
+                        <h1 className='opacity-50 mb-1 md:mb-0 md:pt-3 ml-3'>Social Media</h1>
+                        <div className='flex flex-wrap justify-center items-center gap-2 md:gap-5 ml-1'>
+                            <Link><img src={facebook} alt="facebook" className='w-6 h-6 md:w-6 md:h-6 hover:w-5 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={twitter} alt="twitter" className='w-6 h-6 md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={linkedin} alt="linkedin" className='w-6 h-6 md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={youtube} alt="youtube" className='w-6 h-6  md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={instagram} alt="instagram" className='w-6 h-6 md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={googleplus} alt="googleplus" className='w-6 h-6 md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={pinterest} alt="pinterest" className='w-6 h-6 md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
+                            <Link><img src={rss} alt="rss" className='w-6 h-6 md:w-6 md:h-6 hover:w-8 hover:h-8 md:hover:w-10 md:hover:h-10 transition-all' /></Link>
                         </div>
                     </div>
                 </div>
