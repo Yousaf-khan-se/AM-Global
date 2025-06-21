@@ -7,10 +7,19 @@ import JobCards from '../components/JobCards'
 import arrow from '../assets/jobFindSearchPage/arrow.png'
 import { Range } from 'react-range'
 
-const JobFindSearchPage = () => {
-    const [salaryVal, setsalaryVal] = useState([200, 10000]);
+const JobControlBtn = ({ text, handler, hid }) => {
+    return (
+        <div>
+            <button hidden={hid} onClick={handler} className='py-3 px-16 bg-gradient-to-b from-[#EDD569]/90 to-[#977619] bg-[#977619] hover:bg-black rounded-full text-xl'>
+                {text}
+            </button>
+        </div>
+    )
+}
 
-    // Dummy job data array
+const JobFindSearchPage = () => {
+
+    // Dummy data for job listings
     const jobsData = [
         {
             id: 1,
@@ -122,6 +131,16 @@ const JobFindSearchPage = () => {
         }
     ];
 
+
+    const [salaryVal, setsalaryVal] = useState([200, 10000]);
+    const [activePage, setActivePage] = useState(0);
+    const [jobListDisplay, setJobListDisplay] = useState(jobsData.slice(0, 3));
+
+    const upDateJobList = (id) => {
+        setActivePage(id);
+        setJobListDisplay(jobsData.slice(id, id + 3));
+    }
+
     return (
         <div className='min-w-full my-10 md:mt-20'>
             {/* sec0 */}
@@ -148,8 +167,8 @@ const JobFindSearchPage = () => {
             {/* sec1 */}
             <section className='relative h-full md:h-[220vh] bg-white/10 p-10 md:p-20 flex flex-col justify-center items-center'>
                 <div className='absolute top-80'><img src={sec1Bg} alt="" /></div>
-                <div className='z-10 flex justify-center items-center gap-2'>
-                    <div className='border opacity-90 hidden md:flex md:w-[25vw] pl-5 md:pl-14 flex-col gap-3 md:gap-10'>
+                <div className='z-10 flex justify-center items-center gap-1'>
+                    <div className='opacity-90 hidden md:flex md:w-[25vw] pl-5 md:pl-14 flex-col gap-3 md:gap-10'>
                         <div className='flex justify-between items-start mb-4'>
                             <h1 className='text-lg md:text-3xl font-semibold'>Filter</h1>
                             <div className='flex justify-center items-center gap-2 pt-2'>
@@ -158,7 +177,7 @@ const JobFindSearchPage = () => {
                             </div>
                         </div>
 
-                        <div className='flex flex-col gap-14 my-4'>
+                        <div className='flex flex-col gap-14 my-2'>
                             <div className='flex flex-col justify-start gap-5'>
                                 <h2 className='md:text-xl font-semibold pb-1 md:pb-2'>Job Type</h2>
                                 {
@@ -179,7 +198,7 @@ const JobFindSearchPage = () => {
                                 }
                             </div>
 
-                            <div className='my-4'>
+                            <div className='my-2'>
                                 <h2 className='md:text-xl font-semibold pb-2 mb-1 md:mb-3'>Salary</h2>
                                 <div className='flex justify-between items-center w-[80%] mb-4 font-extralight'>
                                     <p>
@@ -240,7 +259,7 @@ const JobFindSearchPage = () => {
                                 />
                             </div>
 
-                            <div className='flex flex-col justify-start gap-4 mt-4'>
+                            <div className='flex flex-col justify-start gap-4 mt-2'>
                                 <h2 className='md:text-xl font-semibold pb-1 md:pb-2'>Experience Level</h2>
                                 {
                                     [
@@ -261,15 +280,14 @@ const JobFindSearchPage = () => {
                     </div>
 
                     {/* Job Listing */}
-                    <div className='border relative h-full md:w-[62vw] p-2 md:pr-10 py-2 md:pl-24 flex flex-col justify-evenly items-start gap-2 md:gap-6'>
-                        <div className='ml-3 md:ml-7 px-10 md:px-16 absolute top-0 left-0 mb-10 flex justify-between items-center w-full text-lg md:text-xl'>
-                            <p className='text-white/50 font-semibold'>Showing 21 results</p>
+                    <div className='md:pt-40 relative h-full md:w-[62vw] p-2 md:pr-10 py-2 md:pl-24 flex flex-col justify-evenly items-start gap-2 md:gap-6'>
+                        <div className='ml-3 md:ml-7 px-10 md:px-16 absolute top-0 md:top-32 left-0 flex justify-between items-center w-full text-lg md:text-xl'>
+                            <p className='text-white/50 font-semibold'>Showing {jobsData.length} results</p>
                             <p className='text-white/50'><span className='text-white opacity-100 font-extralight text-base'>Sort by: </span><span className='px-2'> Newest Post </span> <img src={arrow} alt="" className='inline-block scale-75' /></p>
                         </div>
                         <div className='flex flex-col gap-5 md:gap-10 mt-5 md:mt-10'>
                             {/* <JobCards heading='Senior Ui Designer' experienceLvl='Expert' location='San Francisco, USA' desc='Ui designer measure and optimise applications to improve ease of use (usability), and create the best user experience by exploring many different approaches to solve end-user’s problems.' startingPrice={3} endingPrice={4} /> */}
-                            {jobsData.map((job, index) => (
-                                index < 3 &&
+                            {jobListDisplay.map((job) => (
                                 <JobCards
                                     key={job.id}
                                     heading={job.heading}
@@ -281,9 +299,55 @@ const JobFindSearchPage = () => {
                                 />
                             ))}
                         </div>
+
+                        {/* Pagination */}
+                        <div className='flex items-center gap-4 self-end mr-10 mt-6'>
+                            {jobsData.map((_, idx) => (
+                                idx % 3 === 0 &&
+                                <span
+                                    key={idx}
+                                    onClick={() => upDateJobList(idx)}
+                                    className={
+                                        `inline-block rounded-full transition-all duration-200 cursor-pointer ` +
+                                        (idx === activePage
+                                            ? 'bg-[#CEB551] w-5 h-5'
+                                            : 'bg-white w-3 h-3 opacity-80')
+                                    }
+                                />
+                            ))}
+                        </div>
+                        <div className='flex justify-between items-center w-full px-2'>
+                            <JobControlBtn
+                                text='Back'
+                                handler={(e) => {
+                                    e.preventDefault();
+                                    if (activePage > 0) {
+                                        upDateJobList(activePage - 3);
+                                    }
+                                }}
+                                hid={
+                                    activePage <= 0
+                                        ? true
+                                        : false
+                                }
+                            />
+                            <JobControlBtn text='Next'
+                                handler={(e) => {
+                                    e.preventDefault();
+                                    if (activePage < jobsData.length - 3) {
+                                        upDateJobList(activePage + 3);
+                                    }
+                                }}
+                                hid={
+                                    activePage >= jobsData.length - 3
+                                        ? true
+                                        : false
+                                }
+                            />
+                        </div>
                     </div>
                 </div>
-                <div></div>
+
             </section>
         </div>
     )
