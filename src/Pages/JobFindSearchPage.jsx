@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import sec0Bg from '../assets/jobFindSearchPage/sec0Bg.png'
 import sec1Bg from '../assets/jobFindSearchPage/sec1Bg.png'
 import searchIcon from '../assets/jobFindSearchPage/searchIcon.png'
@@ -10,7 +10,7 @@ import { Range } from 'react-range'
 const JobControlBtn = ({ text, handler, hid }) => {
     return (
         <div>
-            <button hidden={hid} onClick={handler} className='py-3 px-16 bg-gradient-to-b from-[#EDD569]/90 to-[#977619] bg-[#977619] hover:bg-black rounded-full text-xl'>
+            <button hidden={hid} onClick={handler} className='py-2 sm:py-3 px-8 sm:px-16 bg-gradient-to-b from-[#EDD569]/90 to-[#977619] bg-[#977619] hover:bg-black rounded-full text-base sm:text-xl transition-all'>
                 {text}
             </button>
         </div>
@@ -135,6 +135,40 @@ const JobFindSearchPage = () => {
     const [salaryVal, setsalaryVal] = useState([200, 10000]);
     const [activePage, setActivePage] = useState(0);
     const [jobListDisplay, setJobListDisplay] = useState(jobsData.slice(0, 3));
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+
+    useEffect(() => {
+        // Handle responsive filter display
+        const handleResize = () => {
+            const isLargeScreen = window.innerWidth >= 1024;
+            setIsMobile(!isLargeScreen);
+
+            // If screen becomes large, ensure the filter is visible
+            if (isLargeScreen) {
+                const filterForm = document.getElementById('jobFilterForm');
+                if (filterForm) {
+                    filterForm.classList.remove('hidden');
+                }
+            } else {
+                // On mobile/tablet, hide the filter by default
+                const filterForm = document.getElementById('jobFilterForm');
+                if (filterForm) {
+                    filterForm.classList.add('hidden');
+                }
+            }
+        };
+
+        // Initial check
+        handleResize();
+
+        // Add event listener
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const upDateJobList = (id) => {
         setActivePage(id);
@@ -142,14 +176,14 @@ const JobFindSearchPage = () => {
     }
 
     return (
-        <div className='min-w-full my-10 md:mt-20'>
+        <div className='w-full my-10 md:mt-20'>
             {/* sec0 */}
-            <section className='relative flex justify-start items-center md:h-[78vh] '>
+            <section className='relative flex justify-start items-center md:h-[78vh] h-full w-full'>
                 <div className='absolute inset-0'><img src={sec0Bg} alt="" className='w-full h-full object-cover grayscale' /></div>
                 <div className='z-10'>
                     <h1 className='p-8 md:p-3 md:ml-20 text-2xl md:text-[2.8rem] leading-[2rem] md:leading-[4rem] font-bold text-left w-[80vw] md:w-[35vw]'>Match Your Skills to the <span className='text-[#CEB551]'> Ideal Role</span></h1>
                     <div className='absolute bottom-2 md:bottom-0 flex justify-center items-center w-full text-[0.6rem]  sm:text-xs md:text-lg'>
-                        <div className=' z-20 relative flex justify-end w-[85vw] top-10'>
+                        <div className='z-20 relative flex justify-end w-[85vw] top-10'>
                             <img src={searchIcon} alt="" className='absolute left-0 m-4 md:m-6 w-5 h-5 md:w-8 md:h-8' />
                             <input type="text" className='absolute bg-[rgb(184,157,50)] w-full h-full py-6 md:py-10 rounded-full placeholder:text-white pl-10 md:pl-16 font-semibold' placeholder='Search Job Title Here' />
                             <div className='relative right-0 top-1/2 flex justify-evenly sm:justify-between items-center w-[40vw] md:w-[44vw]'>
@@ -165,15 +199,34 @@ const JobFindSearchPage = () => {
             </section>
 
             {/* sec1 */}
-            <section className='relative h-full md:h-[220vh] bg-white/10 p-10 md:p-20 flex flex-col justify-center items-center'>
-                <div className='absolute top-80'><img src={sec1Bg} alt="" /></div>
-                <div className='z-10 flex justify-center items-center gap-1'>
-                    <div className='opacity-90 hidden md:flex md:w-[25vw] pl-5 md:pl-14 flex-col gap-3 md:gap-10'>
+            <section className='relative mt-10 md:mt-0 h-full min-h-screen lg:h-auto lg:min-h-[220vh] bg-white/10 p-5 sm:p-10 md:p-20 flex flex-col justify-start items-center'>
+                <div className='absolute top-80 opacity-30 lg:opacity-50'><img src={sec1Bg} alt="" className="max-w-full" /></div>
+                <div className='pt-20 z-10 flex flex-col lg:flex-row justify-center items-start lg:items-start gap-6 lg:gap-1 w-full max-w-[1400px]'>{/* Mobile Filter Toggle Button - only visible on small screens */}
+                    <div className="lg:hidden w-full px-4 mb-4">
+                        <button
+                            className='py-2 px-8 bg-[rgb(184,157,50)] rounded-full text-sm font-medium w-full flex items-center justify-center'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const filterForm = document.getElementById('jobFilterForm');
+                                if (filterForm) {
+                                    filterForm.classList.toggle('hidden');
+                                    // Update button text based on filter visibility
+                                    e.target.innerText = filterForm.classList.contains('hidden') ?
+                                        'Show Filters' : 'Hide Filters';
+                                }
+                            }}
+                        >
+                            {isMobile ? 'Show Filters' : 'Filter Jobs'}
+                        </button>
+                    </div>
+
+                    {/* Filter Form - Hidden on mobile by default, always visible on desktop */}
+                    <form id="jobFilterForm" className='pt-4 opacity-90 hidden lg:flex w-full lg:w-[25vw] px-4 lg:pl-5 xl:pl-14 flex-col gap-3 md:gap-8'>
                         <div className='flex justify-between items-start mb-4'>
                             <h1 className='text-lg md:text-3xl font-semibold'>Filter</h1>
                             <div className='flex justify-center items-center gap-2 pt-2'>
-                                <button className='py-[2px] px-4 bg-[rgb(184,157,50)] rounded-full text-xs'>Apply</button>
-                                <button className='py-[2px] px-4 bg-[#B89D32] rounded-full text-xs text-nowrap'>Remove All</button>
+                                <button className='py-[2px] px-4 bg-[rgb(184,157,50)] rounded-full text-xs' type='submit'>Apply</button>
+                                <button className='py-[2px] px-4 bg-[#B89D32] rounded-full text-xs text-nowrap' type='reset' onClick={() => { setsalaryVal([200, 10000]) }}>Remove All</button>
                             </div>
                         </div>
 
@@ -277,15 +330,19 @@ const JobFindSearchPage = () => {
                                 }
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                     {/* Job Listing */}
-                    <div className='md:pt-40 relative h-full md:w-[62vw] p-2 md:pr-10 py-2 md:pl-24 flex flex-col justify-evenly items-start gap-2 md:gap-6'>
-                        <div className='ml-3 md:ml-7 px-10 md:px-16 absolute top-0 md:top-32 left-0 flex justify-between items-center w-full text-lg md:text-xl'>
-                            <p className='text-white/50 font-semibold'>Showing {jobsData.length} results</p>
-                            <p className='text-white/50'><span className='text-white opacity-100 font-extralight text-base'>Sort by: </span><span className='px-2'> Newest Post </span> <img src={arrow} alt="" className='inline-block scale-75' /></p>
+                    <div className='relative h-full w-full lg:w-[62vw] p-2 sm:p-4 lg:pr-10 lg:pl-12 xl:pl-24 flex flex-col justify-evenly items-start gap-2 md:gap-5'>
+                        <div className='px-2 sm:px-6 md:px-8 lg:px-0 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full text-sm sm:text-lg md:text-xl'>
+                            <p className='text-white/50 font-semibold mb-2 sm:mb-0'>Showing <span className='text-white'>{jobListDisplay.length}</span> of <span className='text-white'>{jobsData.length}</span> results</p>
+                            <p className='text-white/50 flex items-center flex-wrap gap-1'>
+                                <span className='text-white opacity-90 font-extralight text-sm sm:text-base'>Sort by: </span>
+                                <span className='px-2'> Newest Post </span>
+                                <img src={arrow} alt="" className='inline-block scale-75' />
+                            </p>
                         </div>
-                        <div className='flex flex-col gap-5 md:gap-10 mt-5 md:mt-10'>
+                        <div className='job-listings flex flex-col gap-5 md:gap-8 mt-5 md:mt-8 w-full'>
                             {/* <JobCards heading='Senior Ui Designer' experienceLvl='Expert' location='San Francisco, USA' desc='Ui designer measure and optimise applications to improve ease of use (usability), and create the best user experience by exploring many different approaches to solve end-user’s problems.' startingPrice={3} endingPrice={4} /> */}
                             {jobListDisplay.map((job) => (
                                 <JobCards
@@ -295,13 +352,12 @@ const JobFindSearchPage = () => {
                                     location={job.location}
                                     desc={job.desc}
                                     startingPrice={job.startingPrice}
-                                    endingPrice={job.endingPrice}
-                                />
+                                    endingPrice={job.endingPrice} />
                             ))}
                         </div>
 
                         {/* Pagination */}
-                        <div className='flex items-center gap-4 self-end mr-10 mt-6'>
+                        <div className='flex items-center gap-3 sm:gap-4 self-center sm:self-end sm:mr-10 mt-6'>
                             {jobsData.map((_, idx) => (
                                 idx % 3 === 0 &&
                                 <span
@@ -310,19 +366,24 @@ const JobFindSearchPage = () => {
                                     className={
                                         `inline-block rounded-full transition-all duration-200 cursor-pointer ` +
                                         (idx === activePage
-                                            ? 'bg-[#CEB551] w-5 h-5'
-                                            : 'bg-white w-3 h-3 opacity-80')
-                                    }
+                                            ? 'bg-[#CEB551] w-4 sm:w-5 h-4 sm:h-5'
+                                            : 'bg-white w-3 h-3 opacity-80')}
                                 />
                             ))}
                         </div>
-                        <div className='flex justify-between items-center w-full px-2'>
+
+                        <div className='flex justify-between items-center w-full px-2 mt-6 sm:mt-4'>
                             <JobControlBtn
                                 text='Back'
                                 handler={(e) => {
                                     e.preventDefault();
                                     if (activePage > 0) {
                                         upDateJobList(activePage - 3);
+                                        // Scroll to top of job listings on mobile
+                                        if (window.innerWidth < 768) {
+                                            const jobListings = document.querySelector('.job-listings');
+                                            jobListings?.scrollIntoView({ behavior: 'smooth' });
+                                        }
                                     }
                                 }}
                                 hid={
@@ -336,6 +397,11 @@ const JobFindSearchPage = () => {
                                     e.preventDefault();
                                     if (activePage < jobsData.length - 3) {
                                         upDateJobList(activePage + 3);
+                                        // Scroll to top of job listings on mobile
+                                        if (window.innerWidth < 768) {
+                                            const jobListings = document.querySelector('.job-listings');
+                                            jobListings?.scrollIntoView({ behavior: 'smooth' });
+                                        }
                                     }
                                 }}
                                 hid={
