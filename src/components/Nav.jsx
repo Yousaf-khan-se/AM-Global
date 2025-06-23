@@ -22,9 +22,9 @@ const Nav = () => {
             <ul className={`hidden md:flex justify-center gap-6 lg:gap-10 text-[${t_size}rem]`}>
                 <NavLink to="/" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark' end><li>Home</li></NavLink>
                 <NavLink to="/about" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>About</li></NavLink>
-                <NavLink to="/access-control" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Access Control</li></NavLink>
-                <NavLink to="/fire-alarms" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Fire Alarms</li></NavLink>
-                <NavLink to="/cctv" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>CCTV</li></NavLink>
+                <NavLink to="/services" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Our Services</li></NavLink>
+                <NavLink to="/whyus" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Why Us</li></NavLink>
+                <NavLink to="/industries" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Industries</li></NavLink>
             </ul>
             <div className='hidden md:block'>
                 <ContactButton />
@@ -47,9 +47,9 @@ const Nav = () => {
                 <ul className='flex flex-col items-start gap-6 p-8 pt-16'>
                     <NavLink to="/" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Home</li></NavLink>
                     <NavLink to="/about" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>About</li></NavLink>
-                    <NavLink to="/access-control" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Access Control</li></NavLink>
-                    <NavLink to="/fire-alarms" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Fire Alarms</li></NavLink>
-                    <NavLink to="/cctv" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>CCTV</li></NavLink>
+                    <NavLink to="/services" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Our Services</li></NavLink>
+                    <NavLink to="/whyus" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Why Us</li></NavLink>
+                    <NavLink to="/industries" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Industries</li></NavLink>
                     <ContactButton />
                 </ul>
             </div>

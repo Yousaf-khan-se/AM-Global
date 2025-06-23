@@ -71,7 +71,7 @@ const Apply = () => {
                     <button className='flex justify-center items-center gap-3 md:text-lg bg-gradient-to-r bg-[#EDD569] from-[#EDD569]/90 to-[#977619]/90 hover:bg-black p-1 w-[30vw] md:w-[12vw] md:p-3 rounded-lg'
                         onClick={(e) => {
                             e.preventDefault();
-                            navigate('/jobs');
+                            navigate('/jobfindsearch');
                         }}
                     >
                         <p>Start</p> <img src={sec0Arrow} alt="" className='scale-75' />

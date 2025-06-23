@@ -25,6 +25,7 @@ import sec3BgPattern from '../assets/services/sec3/sec3BgPattern.png'
 // sec4 assets
 import sec4BgPattern from '../assets/services/sec4/sec4BgPattern.png'
 import sec4Pic from '../assets/services/sec4/sec4Pic.png'
+import { useNavigate } from 'react-router-dom'
 
 // Services data array
 const servicesData = [
@@ -62,7 +63,10 @@ const servicesData = [
     }
 ];
 
+
 const Services = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             {/* sec0 */}
@@ -73,14 +77,22 @@ const Services = () => {
                     <p className='text-[#D4B760] text-xl md:text-2xl ml-1'>Home {'>'}  Services</p>
                     <h1 className='text-3xl md:text-6xl font-semibold md:w-[45vw]'>Global HR & Manpower<span className='text-[#CEB551]'> Expertise</span></h1>
                     <div className='flex justify-center items-start gap-2 md:gap-8'>
-                        <button className='py-[0.6rem] w-[40vw] md:w-[15vw] rounded bg-gradient-to-b text-sm md:text-lg font-semibold from-[#EDD569] to-[#977619]'>Request Proposal {'>'}</button>
-                        <button className='py-[0.6rem] w-[20] md:w-[10vw] rounded bg-white text-black text-sm md:text-lg font-semibold'>Register CV {'>'}</button>
+                        <button className='py-[0.6rem] w-[40vw] md:w-[15vw] rounded bg-gradient-to-b text-sm md:text-lg font-semibold from-[#EDD569]/90 to-[#977619] bg-[#977619] hover:bg-black' onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/proposal');
+                        }}>Request Proposal {'>'}</button>
+                        <button className='py-[0.6rem] w-[20] md:w-[10vw] rounded bg-white text-black hover:bg-black hover:text-white text-sm md:text-lg font-semibold' onClick={
+                            (e) => {
+                                e.preventDefault();
+                                navigate('/jobs');
+                            }
+                        }>Register CV {'>'}</button>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* sec1 */}
-            <section className='relative flex flex-wrap justify-center items-center p-4 h-full md:h-[110vh]'>
+            < section className='relative flex flex-wrap justify-center items-center p-4 h-full md:h-[110vh]' >
                 <div className='absolute inset-0 h-[135vh] bg-gradient-to-b from-black to-white/5 bg-white/5 -z-10'></div>
                 <div className='absolute inset-0'><img src={sec1Bg} alt="" className='w-full h-[110vh] object-contain opacity-15 -z-10' /></div>
                 <div className='z-10 flex flex-col justify-center items-baseline gap-4'>
@@ -96,10 +108,10 @@ const Services = () => {
                 <div className='z-10'>
                     <img src={sec1Pic} alt="" className='max-h-[78vh] w-auto' />
                 </div>
-            </section>
+            </section >
 
             {/* sec2 */}
-            <section className='flex flex-col justify-center items-center md:gap-10 p-2 h-full md:h-[110vh] my-2 md:mt-20 md:mb-5'>
+            < section className='flex flex-col justify-center items-center md:gap-10 p-2 h-full md:h-[110vh] my-2 md:mt-20 md:mb-5' >
                 <div className='flex justify-center items-center p-1 md:p-2'>
                     <div className='text-left'>
                         <h1 className='text-[#CEB551] m-1 md:pr-14 text-xl md:text-2xl'>Services</h1>
@@ -124,10 +136,10 @@ const Services = () => {
                     </div>
                 </div>
                 <button className='md:mb-20 text-white bg-gradient-to-r from-[#F0D784]/75 to-[#C3A349] bg-[#C3A349] hover:bg-black py-[0.4rem] my-4 md:my-0 w-[35vw] md:w-[9.5vw] rounded text-sm font-semibold'>Learn More</button>
-            </section>
+            </section >
 
             {/* sec3 */}
-            <section className='relative md:h-[85vh] flex flex-col justify-around items-center md:mb-0 mb-20'>
+            < section className='relative md:h-[85vh] flex flex-col justify-around items-center md:mb-0 mb-20' >
                 <div className='absolute inset-0 w-full h-full'><img src={sec3BgPattern} alt="" /></div>
                 <div className='absolute inset-0 w-full h-full bg-white/15'></div>
                 <div className='md:my-0 my-4 flex flex-col justify-center items-center gap-2 md:gap-4'>
@@ -153,10 +165,10 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* sec4 */}
-            <section className='relative flex flex-wrap md:pl-40 justify-start items-center p-4 h-full md:h-[110vh]'>
+            < section className='relative flex flex-wrap md:pl-40 justify-start items-center p-4 h-full md:h-[110vh]' >
                 <div className='absolute inset-0 h-full md:h-[135vh] bg-gradient-to-b from-black to-white/5 bg-white/5 -z-10'></div>
                 <div className='absolute inset-0'><img src={sec1Bg} alt="" className='w-full h-full md:h-[110vh] object-contain opacity-15 -z-10' /></div>
                 <div className='relative p-2 z-10 flex flex-col md:gap-16 gap-5 items-start w-auto md:w-[38vw]'>
@@ -170,8 +182,8 @@ const Services = () => {
                 <div className='z-10 p-2 md:absolute md:right-10 md:bottom-0'>
                     <img src={sec4Pic} alt="" className='md:h-[90vh] h-auto w-auto' />
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     )
 }
 
