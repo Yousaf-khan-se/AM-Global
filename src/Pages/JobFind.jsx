@@ -96,12 +96,12 @@ const JobFind = () => {
             {/* sec1 */}
             <section className='pb-16 bg-white/[0.12] relative min-h-[110vh] w-full flex flex-row flex-wrap justify-evenly items-center'>
                 <div className='absolute inset-0 w-full h-full'><img src={section1Bg} alt="section 1 background" /></div>
-                <div className='z-10 flex flex-col items-start gap-5'>
+                <div className='mt-5 md:mt-0 z-10 flex flex-col items-start gap-5'>
                     <div className='max-w-[80vw] md:max-w-[30vw]'>
-                        <h1 className='text-[#C2A441] md:text-[1.8rem] text-[1rem] mb-3'>More About the Role</h1>
-                        <h2 className='md:text-[2.5rem] text-[1.5rem] font-semibold'>Company Overview & Job Description</h2>
+                        <h1 className='pl-3 md:pl-0 text-[#C2A441] md:text-[1.8rem] text-[1rem] mb-3'>More About the Role</h1>
+                        <h2 className='pl-3 md:pl-0 md:text-[2.5rem] text-[1.5rem] font-semibold'>Company Overview & Job Description</h2>
                     </div>
-                    <div className='border-l border-[#CEB551] pl-10 mt-10 max-w-[90vw] md:max-w-[44vw] md:text-lg opacity-90'>
+                    <div className='border-l border-[#CEB551] pl-3 md:pl-10 mt-10 max-w-[90vw] md:max-w-[44vw] md:text-lg opacity-90'>
                         <p className='mb-10'>Discover more about our company and the exciting opportunities we offer. Our team is dedicated to fostering a dynamic and inclusive work environment where innovation thrives. Learn how our culture and values align with your career goals.</p>
                         <p className='pr-2'>The job role involves key responsibilities and opportunities for growth. Get detailed insights into what we’re looking for and how you can contribute to our success.</p>
                     </div>
@@ -139,16 +139,16 @@ const JobFind = () => {
 
             {/* sec2 */}
             <section className='p-4 md:p-40 pb-0 bg-black relative min-h-[50vh] w-full flex flex-col justify-center items-start gap-4'>
-                <h1 className='text-[#C2A441]/85  md:text-[1.8rem] text-[1rem] font-semibold'>Requirements</h1>
-                <h2 className='md:text-[2.5rem] text-[1.5rem] font-semibold'>Job Requirements</h2>
-                <div className='mb-24 border-l-2 border-[#CEB551] pl-10 mt-10 max-w-[70vw] md:text-lg opacity-90'>
+                <h1 className='pl-3 md:pl-0 text-[#C2A441]/85  md:text-[1.8rem] text-[1rem] font-semibold'>Requirements</h1>
+                <h2 className='pl-3 md:pl-0 md:text-[2.5rem] text-[1.5rem] font-semibold'>Job Requirements</h2>
+                <div className='mb-24 border-l-2 border-[#CEB551] pl-3 md:pl-10 mt-10 max-w-[70vw] md:text-lg opacity-90'>
                     <p className='mb-10'>Discover more about our company and the exciting opportunities we offer. Our team is dedicated to fostering a dynamic and inclusive work environment where innovation thrives. Learn how our culture and values align with your career goals.</p>
                     <p className='pr-2'>The job role involves key responsibilities and opportunities for growth. Get detailed insights into what we’re looking for and how you can contribute to our success.</p>
                 </div>
             </section>
 
             {/* sec3 */}
-            <section className='md:min-h-[140vh] w-full pt-20 pb-20 bg-white/[0.13] flex justify-evenly items-center flex-wrap'>
+            <section className='pl-4 md:pl-0 md:min-h-[140vh] w-full pt-20 pb-20 bg-white/[0.13] flex md:justify-evenly items-center flex-wrap'>
                 <div className='flex flex-col justify-center items-start gap-4 md:-mt-80 mb-10 md:mb-0 px-4 md:px-0'>
                     <h1 className='text-[#C2A441]/90 md:text-[1.8rem] text-[1rem] font-semibold'>Get Started</h1>
                     <h2 className='mb-20 md:text-[2.5rem] text-[1.5rem] font-semibold'>Apply Now</h2>

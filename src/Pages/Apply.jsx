@@ -56,9 +56,9 @@ const Apply = () => {
             {/* sec0 */}
             <section className='z-20 relative flex justify-center items-start flex-col w-full min-h-[55vh] px-4 md:px-0'>
                 <div className='z-20 absolute inset-0 opacity-20 md:-top-24 overflow-hidden'><img src={sec0Bg} alt="" className='w-full h-auto object-cover' /></div>
-                <div className='z-20 absolute inset-0 md:-right-20 md:-top-24 overflow-hidden'><img src={sec0Pattern} alt="" className='scale-[0.8] w-full h-auto object-contain' /></div>
-                <div className='z-30 mx-4 md:mx-40 mt-52 md:mt-60 font-opensans relative flex flex-col justify-center items-start gap-4 md:gap-9 max-w-full'>
-                    <h1 className='absolute transform rotate-[-17.13deg] -top-[1.2rem] md:-top-[2rem] -left-10 bg-gradient-to-b from-[#EDD569]/90 to-[#977619] bg-black rounded-lg font-semibold text-xs md:text-base w-[25vw] md:w-[11vw] pt-[0.4rem] pb-[0.4rem] text-center'>Apply Here</h1>
+                <div className='z-20 absolute inset-0 md:-right-20 md:-top-24 overflow-hidden'><img src={sec0Pattern} alt="" className='md:scale-[0.8] w-full h-auto object-contain' /></div>
+                <div className='z-30 mx-4 md:mx-40 mt-28 md:mt-52 font-opensans relative flex flex-col justify-center items-start gap-4 md:gap-9 max-w-full'>
+                    <h1 className='absolute transform rotate-[-17.13deg] -top-[1.5rem] md:-top-[2rem] -left-7 md:-left-10 bg-gradient-to-b from-[#EDD569]/90 to-[#977619] bg-black rounded-lg font-semibold text-xs md:text-base w-[23vw] md:w-[11vw] pt-[0.4rem] pb-[0.4rem] text-center'>Apply Here</h1>
                     <div>
                         <h2 className='text-2xl md:text-6xl mb-2'>Get The Best Job</h2>
                         <h3 className='text-3xl md:text-7xl font-bold text-[#C7B04C]'>You Deserve</h3>
@@ -77,10 +77,12 @@ const Apply = () => {
                         <p>Start</p> <img src={sec0Arrow} alt="" className='scale-75' />
                     </button>
                 </div>
-            </section>            {/* sec1 */}
-            <section className='relative pt-[10rem] md:pt-[23.9rem] overflow-hidden'>
+            </section>
+
+            {/* sec1 */}
+            <section className='relative pt-[1rem] overflow-hidden'>
                 <div className='absolute inset-0 w-full h-full overflow-hidden'><img src={sec1BgTexture} alt="" className='w-full h-full object-cover' /></div>
-                <div className='bg-white/15 relative z-10 flex items-center justify-center flex-wrap gap-14 py-10 md:py-20 pt-10 md:pt-48 px-4' onMouseEnter={handleMouseEnter}>
+                <div className='bg-white/15 relative z-10 flex items-center justify-center flex-wrap gap-14 py-10 md:py-20 pt-6 md:pt-10 px-4' onMouseEnter={handleMouseEnter}>
                     {
                         [
                             { i: sec1img1, h: 'Engineering', t: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt soluta asperiores architecto, iure dolor adipisci necessitatibus repellendus ut doloribus esse, ipsa, rem itaque a? Eius sed modi vel ullam architecto.' },
@@ -98,8 +100,8 @@ const Apply = () => {
             </section>
 
             {/* sec2 */}
-            <section className='md:h-[85vh] flex flex-wrap justify-center items-center gap-10 md:gap-32 md:mb-0  mb-20'>
-                <div className='p-2 w-[90vw] md:w-[37vw] flex flex-col gap-2'>
+            <section className='md:h-[85vh] flex flex-wrap justify-center items-center gap-10 md:gap-32 md:mb-0 mb-20'>
+                <div className='p-4 md:p-2 w-[90vw] md:w-[37vw] flex flex-col gap-2'>
                     <h1 className='text-3xl md:text-5xl font-bold'>
                         <span className='inline-block mb-2'>We Find</span> <br />
                         <span className='text-[#C8AF4E]'> The Job For You</span>
@@ -108,7 +110,7 @@ const Apply = () => {
                         <p className='ml-2 mb-2 opacity-90 tracking-wider font-extralight'>With A M Global you can outsource your entire HR function or any specific HR services that you may need. We will work with you to develop a customized solution that meets your specific business needs with ease.</p>
                         <p className='ml-2 mt-4 md:mt-10 opacity-90 tracking-wider font-extralight'>Sign up as a job seeker and put us to work.</p>
                     </div>
-                    <button className='text-sm md:text-base ml-2 pt-3 pb-3 w-[30vw] md:w-[13.5vw] rounded-lg mt-4 font-semibold bg-gradient-to-b bg-[#977619] hover:bg-black from-[#EDD569]/90 to-[#977619]/90'>Register Directly</button>
+                    <button className='text-sm md:text-base ml-2 pt-3 pb-3 w-[35vw] md:w-[13.5vw] rounded-lg mt-4 font-semibold bg-gradient-to-b bg-[#977619] hover:bg-black from-[#EDD569]/90 to-[#977619]/90'>Register Directly</button>
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-5'>
                     <img src={sec2img1} alt="" className='md:w-[18vw] w-[45vw]' />
@@ -119,8 +121,8 @@ const Apply = () => {
             {/* sec3 */}
             <section className='relative md:h-[85vh] flex flex-col justify-around items-center md:mb-0  mb-20'>
                 <div className='absolute inset-0 w-full h-full'><img src={sec3Pattern} alt="" /></div>
-                <h1 className='text-3xl md:text-4xl font-bold md:p-1 p-10'>How It Works</h1>
-                <div className='flex justify-center items-center flex-wrap gap-2 md:gap-16 text-center text-sm'>
+                <h1 className='text-3xl md:text-4xl font-bold md:p-1 p-10 text-left md:text-center w-full'>How It Works</h1>
+                <div className='ml-7 md:ml-0 flex md:justify-center items-center flex-wrap gap-2 md:gap-16 text-center text-sm'>
                     {[
                         { src: sec3ApplicationLogo, caption: 'Application' },
                         { src: sec3CommunicationLogo, caption: 'Communication' },
@@ -130,15 +132,15 @@ const Apply = () => {
                     ]
                         .map(({ src, caption }) => (
                             <figure key={caption} className='md:m-0 m-1'>
-                                <img src={src} alt="" className='w-28 h-auto' />
+                                <img src={src} alt="" className='w-20 md:w-28 h-auto' />
                                 <figcaption className='p-2'>{caption}</figcaption>
                             </figure>
                         ))}
                 </div>
-                <button className='md:mt-0 mt-8 z-10 text-base md:text-lg w-[35vw] md:w-[13vw] pt-2 pb-2 rounded-lg bg-gradient-to-b bg-[#EDD569]/90 from-[#EDD569]/90 to-[#977619]/90 hover:bg-black'>Get In Touch</button>
+                <button className='ml-10 md:ml-0 self-start md:self-auto md:mt-0 mt-8 z-10 text-base md:text-lg w-[35vw] md:w-[13vw] pt-2 pb-2 rounded-lg bg-gradient-to-b bg-[#EDD569]/90 from-[#EDD569]/90 to-[#977619]/90 hover:bg-black'>Get In Touch</button>
             </section>
 
-            {/* // sec4 */}
+            {/* sec4 */}
             <section className='font-poppins p-2 md:pl-20 md:h-[85vh] flex flex-col justify-center items-start gap-4 md:gap-10 md:mb-0  mb-20'>
                 <div className='md:w-[25vw] w-[90vw] ml-2 md:ml-40'>
                     <h1 className='text-[#BDA54B] text-xl md:text-2xl'>Why AM Global</h1>
@@ -168,7 +170,7 @@ const Apply = () => {
 
             {/* sec5 */}
             <section className='font-assistant p-2 md:h-[110vh] flex flex-col justify-around items-center gap-4 md:gap-10 md:mb-0  mb-20'>
-                <h1 className='text-3xl md:text-7xl font-bold md:mb-10'>Life at AM Global</h1>
+                <h1 className='self-start ml-9 md:ml-0 md:self-auto text-3xl md:text-7xl font-bold md:mb-10'>Life at AM Global</h1>
                 <div className='flex flex-wrap justify-center items-center gap-4'>
                     <div className='md:w-[40vw] flex flex-col justify-center items-center gap-4'>
                         <div className='w-[80vw] md:w-[19vw] flex flex-col md:flex-row justify-center items-center gap-4'>
@@ -191,10 +193,10 @@ const Apply = () => {
             </section>
 
             {/* sec6 */}
-            <section className='bg-white/10 relative p-5 h-fit md:h-[90vh] flex flex-col justify-around items-center'>
+            <section className='relative bg-white/10 p-5 h-fit md:h-[90vh] flex flex-col justify-around items-center'>
                 <div className='absolute inset-0 w-full h-full'><img src={sec6Bg} alt="" /></div>
-                <div className='flex justify-around items-center flex-col relative bg-gradient-to-br bg-[#977619]/90 from-[#EDD569] to-[#977619] w-[80] md:w-[60vw] h-[20vh] md:h-[38vh] rounded-lg'>
-                    <div className='absolute inset-0 h-full w-full '><img src={sec6InnerBoxBg} alt="" className='' /></div>
+                <div className='relative flex justify-around items-center flex-col bg-gradient-to-br bg-[#977619]/90 from-[#EDD569] to-[#977619] w-[80] md:w-[60vw] h-[20vh] md:h-[38vh] rounded-lg'>
+                    <div className='absolute inset-0'><img src={sec6InnerBoxBg} alt="" /></div>
                     <div className='absolute top-[40%] w-full h-full'><img src={sec6innerBoxPattern} alt="" /></div>
                     <h1 className='text-xl md:text-2Sxl md:w-[35vw] text-center font-semibold'>
                         Subscribe Our Newsletter For

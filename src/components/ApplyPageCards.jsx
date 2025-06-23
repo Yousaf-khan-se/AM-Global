@@ -20,17 +20,18 @@ const ApplyPageCards = ({ image, heading, txt, isHovered }) => {
     }
 
     return (
-        <div className='bg-black  border border-[#C8AF4E]/60 rounded-lg w-[65vw] md:w-[25vw]'>
+        <div className='bg-black border border-[#C8AF4E]/60 rounded-lg w-[75vw] md:w-[25vw]'>
             <img src={image} alt="" />
             <div
-                className={`relative cursor-pointer transition-all duration-500 ${isExpanded ? 'h-full' : 'h-[15vh] md:h-[28vh] overflow-hidden'}`}
-            >                <div className={`m-2 md:m-4 md:mt-1 transition-all duration-1000 ease-in-out ${(isExpanded || isTransitioning)
-                ? 'relative opacity-100 transform translate-y-0'
-                : `absolute bg-black/90 backdrop-blur-sm transform ${isHovered
-                    ? 'top-2 left-2 right-2 md:top-0 md:left-0 md:right-0 opacity-100 translate-y-0'
-                    : 'translate-y-full opacity-0 bottom-0 left-0 right-0'
-                }`
-                }`}>
+                className={`relative cursor-pointer transition-all duration-500 ${isExpanded ? 'h-full' : 'h-[32vh] md:h-[28vh] overflow-hidden'}`}
+            >
+                <div className={`m-2 md:m-4 md:mt-1 transition-all duration-1000 ease-in-out ${(isExpanded || isTransitioning)
+                    ? 'relative opacity-100 transform translate-y-0'
+                    : `absolute bg-black/90 backdrop-blur-sm transform ${isHovered
+                        ? 'top-2 left-2 right-2 md:top-0 md:left-0 md:right-0 opacity-100 translate-y-0'
+                        : 'translate-y-full opacity-0 bottom-0 left-0 right-0'
+                    }`
+                    }`}>
 
                     {/* content-div: */}
                     <div>

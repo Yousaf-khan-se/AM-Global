@@ -81,7 +81,7 @@ const Services = () => {
                             e.preventDefault();
                             navigate('/proposal');
                         }}>Request Proposal {'>'}</button>
-                        <button className='py-[0.6rem] w-[20] md:w-[10vw] rounded bg-white text-black hover:bg-black hover:text-white text-sm md:text-lg font-semibold' onClick={
+                        <button className='py-[0.6rem] w-[28vw] md:w-[10vw] rounded bg-white text-black hover:bg-black hover:text-white text-sm md:text-lg font-semibold' onClick={
                             (e) => {
                                 e.preventDefault();
                                 navigate('/jobs');
@@ -95,10 +95,10 @@ const Services = () => {
             < section className='relative flex flex-wrap justify-center items-center p-4 h-full md:h-[110vh]' >
                 <div className='absolute inset-0 h-[135vh] bg-gradient-to-b from-black to-white/5 bg-white/5 -z-10'></div>
                 <div className='absolute inset-0'><img src={sec1Bg} alt="" className='w-full h-[110vh] object-contain opacity-15 -z-10' /></div>
-                <div className='z-10 flex flex-col justify-center items-baseline gap-4'>
-                    <h1 className='text-[#C2A441] md:text-2xl'>What Sets Us Apart</h1>
-                    <h2 className='text-2xl md:text-4xl font-bold w-[85vw] md:w-[45vw]'>Leading the Way in HR Solutions and Global <span className='text-[#CEB551]'> Expertise</span></h2>
-                    <div className='mt-2 md:mt-10 border-l-2 border-[#CEB551] pl-2 md:pl-10 md:w-[39vw] opacity-85'>
+                <div className='sz-10 flex flex-col justify-center items-baseline gap-4'>
+                    <h1 className='pl-4 md:pl-0 text-[#C2A441] md:text-2xl'>What Sets Us Apart</h1>
+                    <h2 className='pl-4 md:pl-0 text-2xl md:text-4xl font-bold w-[85vw] md:w-[45vw]'>Leading the Way in HR Solutions and Global <span className='text-[#CEB551]'> Expertise</span></h2>
+                    <div className='mt-2 md:mt-10 border-l-2 border-[#CEB551] pl-4 md:pl-10 md:w-[39vw] opacity-85'>
                         <p className='mb-2 md:mb-8'>At AM Global,  we  distinguish  ourselves  by  delivering  customized
                             HR  solutions  that  cater  to  your  specific  business  needs.  With
                             our  extensive  experience across the Gulf, India, Pakistan, and the USA, we ensure your company excels with the right talent, efficient payroll management, and strategic HR services.</p>
@@ -112,7 +112,7 @@ const Services = () => {
 
             {/* sec2 */}
             < section className='flex flex-col justify-center items-center md:gap-10 p-2 h-full md:h-[110vh] my-2 md:mt-20 md:mb-5' >
-                <div className='flex justify-center items-center p-1 md:p-2'>
+                <div className='flex justify-center items-center p-4 md:p-2'>
                     <div className='text-left'>
                         <h1 className='text-[#CEB551] m-1 md:pr-14 text-xl md:text-2xl'>Services</h1>
                         <h2 className='m-1 md:pr-14 text-2xl md:text-4xl font-bold'>Our Core Services</h2>
@@ -135,18 +135,18 @@ const Services = () => {
                         ))}
                     </div>
                 </div>
-                <button className='md:mb-20 text-white bg-gradient-to-r from-[#F0D784]/75 to-[#C3A349] bg-[#C3A349] hover:bg-black py-[0.4rem] my-4 md:my-0 w-[35vw] md:w-[9.5vw] rounded text-sm font-semibold'>Learn More</button>
+                <button className='md:ml-0 ml-4 self-start md:self-auto md:mb-20 text-white bg-gradient-to-r from-[#F0D784]/75 to-[#C3A349] bg-[#C3A349] hover:bg-black py-[0.4rem] my-4 md:my-0 w-[35vw] md:w-[9.5vw] rounded text-sm font-semibold'>Learn More</button>
             </section >
 
             {/* sec3 */}
             < section className='relative md:h-[85vh] flex flex-col justify-around items-center md:mb-0 mb-20' >
                 <div className='absolute inset-0 w-full h-full'><img src={sec3BgPattern} alt="" /></div>
                 <div className='absolute inset-0 w-full h-full bg-white/15'></div>
-                <div className='md:my-0 my-4 flex flex-col justify-center items-center gap-2 md:gap-4'>
+                <div className='md:my-0 my-4 flex flex-col justify-center items-start md:items-center gap-2 md:gap-4'>
                     <h1 className='text-xl text-center md:text-4xl font-semibold'>Our &nbsp;<span className='bg-[#CEB551] rounded'> Impact </span>&nbsp; in Numbers</h1>
-                    <p className='text-xs md:text-sm w-[45vw] text-center'>Our outsourcing and manpower solutions have helped businesses in a wide range of industries to save time and money while reducing compliance risks.</p>
-                    <div className='md:mt-10 mt-2 flex flex-col lg:flex-row w-full max-w-[80vw] md:max-w-7xl justify-evenly items-center content-center bg-[#2F2F2F]/20 rounded-xl p-6 lg:p-6 pb-8 lg:pb-10 gap-6 lg:gap-4'>
-                        <div className='w-full lg:w-60 h-auto text-center'>
+                    <p className='text-xs md:text-sm w-[88vw] text-left md:text-center'>Our outsourcing and manpower solutions have helped businesses in a wide range of industries to save time and money while reducing compliance risks.</p>
+                    <div className='self-center md:mt-10 mt-2 flex flex-col lg:flex-row w-full max-w-[60vw] md:max-w-7xl justify-evenly items-center content-center bg-[#2F2F2F]/20 rounded-xl p-6 lg:p-6 pb-8 lg:pb-10 gap-6 lg:gap-4'>
+                        <div className='w-full md:w-60 h-auto text-center'>
                             <h1 className='text-[#BDA03D] font-semibold text-2xl md:text-3xl xl:text-5xl'>20+</h1>
                             <p className='font-extralight text-sm p-2'>Industries</p>
                         </div>
@@ -168,7 +168,7 @@ const Services = () => {
             </section >
 
             {/* sec4 */}
-            < section className='relative flex flex-wrap md:pl-40 justify-start items-center p-4 h-full md:h-[110vh]' >
+            < section className='relative flex flex-wrap md:placeholder:-40 justify-start items-center px-8 md:p-4 h-full md:h-[110vh]' >
                 <div className='absolute inset-0 h-full md:h-[135vh] bg-gradient-to-b from-black to-white/5 bg-white/5 -z-10'></div>
                 <div className='absolute inset-0'><img src={sec1Bg} alt="" className='w-full h-full md:h-[110vh] object-contain opacity-15 -z-10' /></div>
                 <div className='relative p-2 z-10 flex flex-col md:gap-16 gap-5 items-start w-auto md:w-[38vw]'>

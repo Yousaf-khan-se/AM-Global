@@ -8,8 +8,8 @@ const Porposal = () => {
             <section className='relative flex flex-col justify-around items-center md:h-[150vh] h-auto  py-20'>
                 <div className='absolute md:top-52 md:h-[150vh]'><img src={bg} alt="" /></div>
                 <div className='absolute inset-0 md:h-[150vh] bg-white/[0.13]'></div>
-                <div className='text-center'>
-                    <h1 className='text-xl md:text-[2.5rem] font-extrabold m-2 md:mb-8'>Request Proposal</h1>
+                <div className='ml-4 md:ml-0 md:text-center'>
+                    <h1 className='text-xl md:text-[2.5rem] font-extrabold m-4 md:m-2 md:mb-8'>Request Proposal</h1>
                     <p className='md:text-center text-left md:ml-0 m-4 opacity-80 md:w-[30vw] md:mb-20 mb-2'>Share details of the role you're looking to fill and we'll be in touch within 24 hours.</p>
                 </div>
                 <div className='shadow-2xl shadow-black/5 md:p-10 p-3 rounded-xl flex md:flex-row flex-col-reverse justify-center items-center bg-[#272727] m-2 gap-3 md:gap-10 w-auto md:w-[80vw] h-atuo md:h-[110vw] z-10'>
