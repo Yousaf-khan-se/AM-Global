@@ -49,6 +49,7 @@ export const userSlice = createSlice({
         }); builder.addCase(loginUser.fulfilled, (state, action) => {
             state.loading = false;
             state.user = action.payload.user;
+            state.error = null;
             state.isAuthenticated = true;
             state.success = true;
             state.message = action.payload.message || 'Login successful';

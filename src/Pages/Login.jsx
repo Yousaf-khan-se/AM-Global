@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import bg from '../assets/proposal/bg.png'
 import loginPic from '../assets/proposal/formPic.png'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../thunk/authThunk'
+import { clearError, clearSuccess } from '../redux/features/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -12,8 +13,7 @@ const Login = () => {
         rememberMe: false
     })
     const [showPassword, setShowPassword] = useState(false)
-
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const { loading, error } = useSelector(state => state.user)
 
     const handleChange = (e) => {
@@ -33,7 +33,6 @@ const Login = () => {
             email: formData.email,
             password: formData.password
         }))
-
     }
 
     const togglePasswordVisibility = () => {
@@ -111,6 +110,10 @@ const Login = () => {
                         <Link
                             to="/forgot-password"
                             className={`text-xs text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}
+                            onClick={() => {
+                                dispatch(clearError());
+                                dispatch(clearSuccess());
+                            }}
                         >
                             Forgot Password?
                         </Link>
@@ -131,7 +134,13 @@ const Login = () => {
                             {loading ? 'Logging in...' : 'Login'}
                         </button>
                         <p className="text-xs text-white/70">
-                            Don't have an account? <Link to="/signup" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}>Sign up here</Link>
+                            Don't have an account?
+                            <Link to="/signup" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}
+                                onClick={() => {
+                                    dispatch(clearError());
+                                    dispatch(clearSuccess());
+                                }}
+                            >Sign up here</Link>
                         </p>
                     </div>
 

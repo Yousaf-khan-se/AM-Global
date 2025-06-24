@@ -4,7 +4,7 @@ import signupPic from '../assets/proposal/formPic.png'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '../thunk/authThunk'
-import { clearError } from '../redux/features/userSlice'
+import { clearError, clearSuccess } from '../redux/features/userSlice'
 
 const Signup = () => {
     const [showPrivacyPolicyError, setShowPrivacyPolicyError] = useState(false)
@@ -22,14 +22,8 @@ const Signup = () => {
     })
 
     const dispatch = useDispatch()
-    const { loading, error, success, message } = useSelector(state => state.user)
 
-    // Clear errors on unmount
-    useEffect(() => {
-        return () => {
-            dispatch(clearError())
-        }
-    }, [dispatch])
+    const { loading, error, success, message } = useSelector(state => state.user)
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target
@@ -74,7 +68,6 @@ const Signup = () => {
         }
 
         dispatch(registerUser(userData))
-        // No need to navigate - AuthRoute component will handle redirection after successful registration
     }
 
     return (
@@ -224,7 +217,17 @@ const Signup = () => {
                                 className='absolute appearance-none bg-transparent top-0 left-0 w-4 h-4 border border-white/30 rounded checked:after:content-["✓"] checked:after:text-white checked:after:text-xs checked:after:absolute checked:after:top-[-2px] checked:after:left-[1px] checked:after:font-bold'
                             />
                             <label htmlFor="privacy" className='text-[0.55rem] font-extralight px-4 ml-2 md:w-[28vw] inline-block opacity-85'>
-                                Yes, I agree to receive communication over emails (job alerts, newsletters, career tips), phone, or text from AM Global. I accept the <Link to="/terms" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}>Terms of Use</Link> and <Link to="/privacy" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}>Privacy Policy</Link>.
+                                Yes, I agree to receive communication over emails (job alerts, newsletters, career tips), phone, or text from AM Global. I accept the <Link to="/terms" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}
+                                    onClick={() => {
+                                        dispatch(clearError());
+                                        dispatch(clearSuccess());
+                                    }}
+                                >Terms of Use</Link> and <Link to="/privacy" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}
+                                    onClick={() => {
+                                        dispatch(clearError());
+                                        dispatch(clearSuccess());
+                                    }}
+                                >Privacy Policy</Link>.
                             </label>
                             <br />
                             <label className={`text-[0.55rem] font-light px-4 ml-2 md:w-[28vw] opacity-100 text-red-500 ${showPrivacyPolicyError ? 'block' : 'hidden'}`}>
