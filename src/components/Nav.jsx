@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutUser } from '../thunk/authThunk'
 import logo from '../assets/logo.png'
 
 const t_size = 0.6; // in rem
@@ -15,6 +17,15 @@ const ContactButton = () => {
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { isAuthenticated, user } = useSelector(state => state.user)
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+        navigate('/')
+    }
+
     return (
         <nav className='fixed w-full flex sm:justify-evenly justify-between items-center p-4 md:p-10 bg-black/70 z-30'>
             <img src={logo} alt='Company Logo' className='h-8 md:pr-28' />
@@ -25,9 +36,24 @@ const Nav = () => {
                 <NavLink to="/services" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Our Services</li></NavLink>
                 <NavLink to="/whyus" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Why Us</li></NavLink>
                 <NavLink to="/industries" className='hover:underline hover:decoration-themeYDark decoration-themeYDark underline-offset-4 [&.active]:underline [&.active]:decoration-themeYDark'><li>Industries</li></NavLink>
-            </ul>
-            <div className='hidden md:block'>
-                <ContactButton />
+            </ul>            <div className='hidden md:flex items-center gap-4'>
+                {isAuthenticated ? (
+                    <>
+                        <span className="text-white text-xs">Welcome, {user?.firstName || 'User'}</span>
+                        <button
+                            onClick={handleLogout}
+                            className="text-[#EDD569] hover:underline text-xs"
+                        >
+                            Logout
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <NavLink to="/login" className="text-white hover:text-[#EDD569] text-xs">Login</NavLink>
+                        <NavLink to="/signup" className="text-white hover:text-[#EDD569] text-xs">Signup</NavLink>
+                        <ContactButton />
+                    </>
+                )}
             </div>
             {/* Hamburger Icon */}
             {!menuOpen && (
@@ -47,10 +73,34 @@ const Nav = () => {
                 <ul className='flex flex-col items-start gap-6 p-8 pt-16'>
                     <NavLink to="/" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Home</li></NavLink>
                     <NavLink to="/about" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>About</li></NavLink>
-                    <NavLink to="/services" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Our Services</li></NavLink>
-                    <NavLink to="/whyus" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Why Us</li></NavLink>
+                    <NavLink to="/services" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Our Services</li></NavLink>                    <NavLink to="/whyus" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Why Us</li></NavLink>
                     <NavLink to="/industries" onClick={() => setMenuOpen(false)} className='hover:underline hover:decoration-themeYDark'><li>Industries</li></NavLink>
-                    <ContactButton />
+
+                    {/* Auth links for mobile */}
+                    {isAuthenticated ? (
+                        <>
+                            <div className="border-t border-white/20 w-full my-2 pt-2">
+                                <span className="text-white text-xs">Welcome, {user?.firstName || 'User'}</span>
+                                <button
+                                    onClick={() => {
+                                        handleLogout();
+                                        setMenuOpen(false);
+                                    }}
+                                    className="block mt-2 text-[#EDD569] hover:underline text-xs"
+                                >
+                                    Logout
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="border-t border-white/20 w-full my-2 pt-2">
+                                <NavLink to="/login" onClick={() => setMenuOpen(false)} className='block mb-2 text-[#EDD569] hover:underline text-xs'><li>Login</li></NavLink>
+                                <NavLink to="/signup" onClick={() => setMenuOpen(false)} className='block mb-2 text-[#EDD569] hover:underline text-xs'><li>Sign Up</li></NavLink>
+                                <ContactButton />
+                            </div>
+                        </>
+                    )}
                 </ul>
             </div>
         </nav>
