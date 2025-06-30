@@ -3,11 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { loadUser } from '../thunk/userThunk';
 import { clearError, clearSuccess } from '../redux/features/userSlice';
+import Nav from './Nav'
+import Footer from './Footer';
 
 const ProtectedRoute = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { isAuthenticated, loading, error, user } = useSelector((state) => state.user);
+    const [isUserLoadingError, setUserLoadingError] = useState(false);
     const [userLoading, setUserLoading] = useState(true);
 
     useEffect(() => {
@@ -17,9 +20,14 @@ const ProtectedRoute = () => {
                 try {
                     await dispatch(loadUser()).unwrap();
                     console.log('ProtectedRoute: User data loaded successfully');
+                    setUserLoadingError(false);
                 } catch (err) {
                     console.error('ProtectedRoute: Failed to load user data', err);
+                    setUserLoadingError(true);
                 }
+            } else {
+                // If user data already exists, clear any previous errors
+                setUserLoadingError(false);
             }
             setUserLoading(false);
         };
@@ -33,20 +41,14 @@ const ProtectedRoute = () => {
         }
     }, [dispatch, isAuthenticated, navigate, user, userLoading]);
 
-    // Show loading when:
-    // 1. Auth is loading OR
-    // 2. User is authenticated but user data is still loading
     if (loading || (isAuthenticated && userLoading)) {
         return <div className="text-center mt-32">🔄 Loading your profile...</div>;
     }
 
-    // Show error only if authenticated but there's an error
-    if (isAuthenticated && error) {
+    if (isAuthenticated && error && isUserLoadingError) {
         return <div className="text-center mt-32 text-red-500">⚠️ {error}</div>;
     }
 
-    // If authenticated and user data is loaded (or doesn't need loading),
-    // show the protected content
     if (isAuthenticated && !userLoading) {
         return (
             <>
@@ -60,7 +62,6 @@ const ProtectedRoute = () => {
         );
     }
 
-    // Fallback - should never reach here because of the navigate in useEffect
     return <div className="text-center mt-32">Redirecting to login...</div>;
 };
 

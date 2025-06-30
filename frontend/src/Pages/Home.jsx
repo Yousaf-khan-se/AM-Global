@@ -92,7 +92,7 @@ const Home = () => {
                     <div className='text-center relative'>
                         <div className='relative inline-block'>
                             <img src={homeBlackSquare} alt="Home" className='w-80 h-auto mx-auto' />
-                            <h1 className='absolute top-[6.2rem] -right-20 transform -translate-x-1/2 rotate-[17.13deg] text-xs font-bold bg-gradient-to-r from-themeY/60 to-themeYDark/90 bg-themeYDark p-2 px-4 z-10 rounded whitespace-nowrap'>Companies</h1>
+                            <h1 className='absolute top-[6rem] -right-[4.5rem] transform -translate-x-1/2 rotate-[17.13deg] text-xs font-bold bg-gradient-to-r from-themeY/60 to-themeYDark/90 bg-themeYDark p-2 px-4 z-10 rounded whitespace-nowrap'>Companies</h1>
                             {/* Content overlaid on image */}
                             <div className='absolute inset-0 flex flex-col justify-center items-center pt-16 px-4'>
                                 <div className='space-y-3 text-center'>

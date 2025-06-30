@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import bg from '../assets/proposal/bg.png'
 import signupPic from '../assets/proposal/formPic.png'
-import { deleteUserProfile, updateUserProfile } from '../thunk/userThunk'
-import { setByPassUserLoad } from '../redux/features/userSlice'
+import { updateUserProfile } from '../thunk/userThunk'
+import { clearError, clearSuccess } from '../redux/features/userSlice'
+import ChangePasswordModal from '../components/ChangePasswordModal'
+import DeleteAccountModal from '../components/DeleteAccountModal'
 
 // Define styles for modal animations
 const modalAnimationStyle = `
@@ -21,6 +23,7 @@ const UserProfile = () => {
     const { user, error, success, loading, message } = useSelector(state => state.user)
     const [isEditing, setIsEditing] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
     const dispatch = useDispatch();
 
     const [userData, setUserData] = useState({
@@ -57,11 +60,14 @@ const UserProfile = () => {
 
     const handleEdit = () => {
         setIsEditing(true)
+        dispatch(clearSuccess());
+        dispatch(clearError());
     }
 
     const handleCancel = () => {
         setIsEditing(false)
-        // Reset form to original user data
+        dispatch(clearSuccess());
+        dispatch(clearError());
         if (user) {
             setUserData({
                 firstName: user.firstName || '',
@@ -74,21 +80,10 @@ const UserProfile = () => {
         }
     }
 
-    const handleDeleteAccount = async (e) => {
-        e.preventDefault();
-
-        try {
-            await dispatch(deleteUserProfile()).unwrap();
-            setShowDeleteModal(false);
-            await dispatch(setByPassUserLoad(true));
-            window.location.href = '/login';
-        } catch (err) {
-            console.error('Failed to delete account:', err);
-        }
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault()
+        dispatch(clearSuccess());
+        dispatch(clearError());
 
         const changedFields = Object.entries(userData).reduce((acc, [key, value]) => {
             if (value !== user[key]) {
@@ -237,13 +232,13 @@ const UserProfile = () => {
                             </div>
                         </div>
 
-                        {error && (
+                        {isEditing && error && (
                             <div className="bg-red-900/20 border border-red-500/30 rounded-lg py-2 px-4 my-4">
                                 <p className="text-xs text-red-400">{error}</p>
                             </div>
                         )}
 
-                        {success && (
+                        {isEditing && success && (
                             <div className="bg-green-900/20 border border-green-500/30 rounded-lg py-2 px-4 my-4">
                                 <p className="text-xs text-green-400">{message || 'Profile updated successfully!'}</p>
                             </div>
@@ -294,8 +289,14 @@ const UserProfile = () => {
                             <h2 className="text-sm font-medium mb-2">Account Settings</h2>
                             <button
                                 type="button"
-                                className="text-xs text-themeYDark hover:underline mr-4"
-                                onClick={() => window.location.href = '/forgot-password'}
+                                className="text-xs text-themeYDark hover:underline mr-4 disabled:hover:opacity-60"
+                                disabled={isEditing || loading}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowChangePasswordModal(true);
+                                    dispatch(clearSuccess());
+                                    dispatch(clearError());
+                                }}
                             >
                                 Change Password
                             </button>
@@ -303,12 +304,27 @@ const UserProfile = () => {
                             <button
                                 type="button"
                                 disabled={isEditing || loading}
-                                className="text-xs text-red-400 hover:underline"
-                                onClick={() => setShowDeleteModal(true)}
+                                className="text-xs text-red-400 hover:underline disabled:hover:opacity-60"
+                                onClick={() => {
+                                    setShowDeleteModal(true);
+                                    dispatch(clearSuccess());
+                                    dispatch(clearError());
+                                }}
                             >
                                 Delete Account
                             </button>
                         </div>
+                        {error && (
+                            <div className="mt-4 bg-red-900/20 border border-red-500/30 rounded-lg py-2 px-4">
+                                <p className="text-red-400 text-xs">{error}</p>
+                            </div>
+                        )}
+
+                        {success && (
+                            <div className="mt-4 bg-green-900/20 border border-green-500/30 rounded-lg py-2 px-4">
+                                <p className="text-green-400 text-xs">{message}</p>
+                            </div>
+                        )}
                     </form>
                     <div className='m-3'>
                         <img src={signupPic} alt="Profile illustration" className='h-full max-h-[92vh] object-contain' />
@@ -316,56 +332,14 @@ const UserProfile = () => {
                 </div>
             </section>
 
-            {/* Delete Account Confirmation Modal */}
-            {showDeleteModal && (
-                <div
-                    className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-                    onClick={(e) => e.target === e.currentTarget && setShowDeleteModal(false)} // Close when clicking outside
-                >
-                    <div
-                        className="bg-[#272727] rounded-lg p-8 max-w-md w-full mx-4 border border-themeYDark/30 shadow-lg animate-[fadeIn_0.3s_ease-in-out]"
-                        style={{ animation: "fadeIn 0.3s ease-in-out, slideIn 0.3s ease-out" }}
-                    >
-                        <h3 className="text-xl font-semibold mb-4 text-white">Delete Account</h3>
-                        <div className="mb-6">
-                            <p className="text-white/80 mb-2">Are you sure you want to delete your account?</p>
-                            <p className="text-red-400 text-sm">This action cannot be undone. All your data will be permanently removed.</p>
-                        </div>
-                        <div className="mt-8 flex justify-end gap-4">
-                            <button
-                                type="button"
-                                disabled={loading}
-                                onClick={() => setShowDeleteModal(false)}
-                                className="px-4 py-2 text-xs bg-transparent border border-white/30 hover:border-white/50 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {loading ? 'Processing...' : 'Cancel'}
-                            </button>
-                            <button
-                                type="button"
-                                onClick={handleDeleteAccount}
-                                disabled={loading}
-                                className="px-4 py-2 text-xs bg-red-600 hover:bg-red-700 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {loading ? 'Processing...' : 'Delete Account'}
-                            </button>
-                        </div>
-
-                        {loading && (
-                            <div className="mt-4 text-center">
-                                <p className='text-xs text-white/80'>You will be directed to login after your account deletion is completed.</p>
-                            </div>
-                        )}
-
-                        <div>
-                            {error && !isEditing && (
-                                <div className="mt-4 bg-red-900/20 border border-red-500/30 rounded-lg py-2 px-4">
-                                    <p className="text-red-400 text-xs">{error}</p>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            )}
+            <ChangePasswordModal
+                isOpen={showChangePasswordModal}
+                onClose={useCallback(() => setShowChangePasswordModal(false), [])}
+            />
+            <DeleteAccountModal
+                isOpen={showDeleteModal}
+                onClose={useCallback(() => setShowDeleteModal(false), [])}
+            />
         </div>
     )
 }

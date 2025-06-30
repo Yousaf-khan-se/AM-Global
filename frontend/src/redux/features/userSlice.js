@@ -91,7 +91,6 @@ export const userSlice = createSlice({
             state.success = true;
             state.message = action.payload.message || 'Logged out successfully';
             state.loading = false;
-            // Don't reset byPassUserLoad here - it needs to persist for navigation
         });
         builder.addCase(logoutUser.rejected, (state, action) => {
             state.error = action.payload || 'Logout failed';
@@ -111,7 +110,7 @@ export const userSlice = createSlice({
             state.loading = false;
             state.user = action.payload;
             state.isAuthenticated = true;
-            state.success = true;
+            // state.success = true;
             state.error = null;
         });
         builder.addCase(loadUser.rejected, (state, action) => {
@@ -166,6 +165,26 @@ export const userSlice = createSlice({
             state.loading = false;
             state.success = false;
             state.error = action.payload || 'Failed to delete profile';
+            state.message = '';
+        });
+
+        // Change password
+        builder.addCase('user/changePassword/pending', (state) => {
+            state.loading = true;
+            state.error = null;
+            state.success = false;
+            state.message = '';
+        });
+        builder.addCase('user/changePassword/fulfilled', (state, action) => {
+            state.loading = false;
+            state.success = true;
+            state.error = null;
+            state.message = action.payload.message || 'Password changed successfully';
+        });
+        builder.addCase('user/changePassword/rejected', (state, action) => {
+            state.loading = false;
+            state.success = false;
+            state.error = action.payload || 'Failed to change password';
             state.message = '';
         });
 

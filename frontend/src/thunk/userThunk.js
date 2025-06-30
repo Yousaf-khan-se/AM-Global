@@ -43,3 +43,18 @@ export const deleteUserProfile = createAsyncThunk(
         }
     }
 );
+
+export const changePassword = createAsyncThunk(
+    'user/changePassword',
+    async (passwordData, { rejectWithValue }) => {
+        try {
+            const response = await axios.patch('/user/update-password', passwordData);
+            console.log('Password changed successfully:', response.data);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(
+                error.response?.data?.error || 'Failed to change password. Please try again later.'
+            );
+        }
+    }
+);

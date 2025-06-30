@@ -71,24 +71,24 @@ const Signup = () => {
     }
 
     return (
-        <section className='relative bg-white/10 flex flex-col justify-around items-center h-[100vh] py-20'>
+        <section className='relative bg-white/10 flex flex-col justify-around items-center h-[100vh] py-2 md:py-5'>
             <div className='absolute md:top-5 h-[100vh] z-10'><img src={bg} alt="" className="w-full h-full object-cover" /></div>
             <div className='ml-4 md:ml-0 md:text-center z-10'>
-                <h1 className='text-xl md:text-[2.5rem] font-extrabold m-4 md:m-2 md:mb-8'>Join Our Global Network</h1>
-                <p className='md:text-center text-left md:ml-0 m-4 opacity-80 md:w-[40vw] md:mb-20 mb-2'>
+                <h1 className='text-xl md:text-[2rem] font-extrabold m-4'>Join Our Global Network</h1>
+                <p className='md:text-center text-left md:ml-0 m-4 opacity-80 mb-2 md:text-base text-sm'>
                     Create your account to unlock personalized job opportunities and connect with leading employers worldwide.
                 </p>
             </div>
-            <div className='shadow-2xl shadow-black/5 md:p-10 p-3 rounded-xl flex md:flex-row flex-col-reverse justify-center items-center bg-[#272727] m-2 gap-3 md:gap-10 w-auto md:w-[80vw] h-[90vh] z-10'>
-                <form onSubmit={handleSubmit} className='md:ml-10 md:w-[38vw] h-full'>
+            <div className='shadow-2xl shadow-black/5 p-3 md:p-5 rounded-xl flex md:flex-row flex-col-reverse justify-center items-center bg-[#272727] m-2 gap-3 md:gap-10 w-auto md:w-[70vw] md:h-[85vh] z-10'>
+                <form onSubmit={handleSubmit} className='md:ml-10 w-[90vw] md:w-[35vw] h-full'>
                     <h1 className='text-lg md:text-xl font-semibold mb-1'>Sign Up</h1>
                     <p className='font-extralight opacity-90 md:w-[24vw] text-xs'>
                         Create your account to access personalized job search, application tracking, and career resources.
                     </p>
 
                     {/* field div */}
-                    <div className='py-7 flex flex-col justify-center items-start gap-4 text-black'>
-                        <div className='flex justify-start items-center gap-4 w-full'>
+                    <div className='py-5 flex flex-col justify-center items-start gap-4 text-black'>
+                        <div className='flex flex-row justify-start items-center gap-3 w-full'>
                             <input
                                 type="text"
                                 name="firstName"
@@ -131,6 +131,7 @@ const Signup = () => {
                                 placeholder='Password'
                                 className='rounded w-1/2 p-[0.4rem] placeholder:text-xs text-sm border border-white/10 bg-white/10 text-white'
                                 required
+                                minLength={6}
                                 disabled={loading}
                             />
                             <input
@@ -213,10 +214,10 @@ const Signup = () => {
                             checked={formData.receiveUpdates}
                             onChange={handleChange}
                             disabled={loading}
-                            className='absolute appearance-none bg-transparent top-0 left-0 w-4 h-4 border border-white/30 rounded checked:after:content-["✓"] checked:after:text-white checked:after:text-xs checked:after:absolute checked:after:top-[-2px] checked:after:left-[1px] checked:after:font-bold'
+                            className='cursor-pointer appearance-none bg-transparent top-0 left-0 w-4 h-4 border border-white/30 rounded checked:after:content-["✓"] checked:after:text-white checked:after:text-xs checked:after:absolute checked:after:top-[2px] checked:after:left-[1px] checked:after:font-bold'
                         />
-                        <label htmlFor="privacy" className='text-[0.55rem] font-extralight px-4 ml-2 md:w-[28vw] inline-block opacity-85'>
-                            Yes, I agree to receive communication over emails (job alerts, newsletters, career tips), phone, or text from AM Global. I accept the <Link to="/terms" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}
+                        <label htmlFor="privacy" className='text-[0.55rem] font-extralight ml-2 inline-block opacity-85 align-text-top pt-1'>
+                            I accept the <Link to="/terms" className={`text-[#D5BB54] hover:underline ${loading ? 'pointer-events-none opacity-50' : ''}`}
                                 onClick={() => {
                                     dispatch(clearError());
                                     dispatch(clearSuccess());
@@ -228,7 +229,9 @@ const Signup = () => {
                                 }}
                             >Privacy Policy</Link>.
                         </label>
+
                         <br />
+
                         <label className={`text-[0.55rem] font-light px-4 ml-2 md:w-[28vw] opacity-100 text-red-500 ${showPrivacyPolicyError ? 'block' : 'hidden'}`}>
                             Please Agree to our Privacy Policy and Terms of Use to proceed.
                         </label>
@@ -246,11 +249,11 @@ const Signup = () => {
                         </div>
                     )}
 
-                    <div className="flex flex-col justify-start items-start md:items-center gap-3 mt-6">
+                    <div className="flex flex-col justify-start items-start md:items-center gap-3 mt-3">
                         <button
                             type='submit'
                             disabled={loading}
-                            className='bg-gradient-to-r from-[#D5BB54]/90 to-[#977619] bg-[#977619] hover:bg-black py-2 md:w-[37vw] w-[89vw] text-xs rounded-full transition-all disabled:opacity-60 disabled:cursor-not-allowed'
+                            className='bg-gradient-to-r from-[#D5BB54]/90 to-[#977619] bg-[#977619] hover:bg-black py-2 md:w-[34vw] w-[89vw] text-xs rounded-full transition-all disabled:opacity-60 disabled:cursor-not-allowed'
                         >
                             {loading ? 'Signing up...' : 'Sign Up'}
                         </button>
@@ -260,8 +263,8 @@ const Signup = () => {
                         </p>
                     </div>
                 </form>
-                <div className='m-3'>
-                    <img src={signupPic} alt="People working together" className='h-full object-contain' />
+                <div className='m-2 hidden md:block'>
+                    <img src={signupPic} alt="People working together" className='object-contain' />
                 </div>
             </div>
         </section>

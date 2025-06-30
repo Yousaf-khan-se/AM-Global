@@ -7,6 +7,9 @@ import Apply from './Pages/Apply.jsx';
 import Services from './Pages/Services.jsx';
 import Proposal from './Pages/Porposal.jsx';
 import JobFindSearchPage from './Pages/JobFindSearchPage.jsx';
+import About from './Pages/About.jsx';
+import WhyUs from './Pages/WhyUs.jsx';
+import Industries from './Pages/Industries.jsx';
 
 import {
   BrowserRouter as Router,
@@ -56,17 +59,20 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route element={<AuthRoute />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
         </Route>
 
 
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/whyus" element={<WhyUs />} />
+          <Route path="/industries" element={<Industries />} />
           <Route path="/jobs" element={<JobFind />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/proposal" element={<Proposal />} />

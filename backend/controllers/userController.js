@@ -86,5 +86,26 @@ module.exports = {
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
+    },
+
+    updatePassword: async (req, res) => {
+        try {
+            console.log(req.body);
+            const { oldPassword, newPassword } = req.body;
+
+            const user = await User.findById(req.userId);
+
+            if (!user || !(await user.matchPassword(oldPassword))) {
+                console.log("Incorrect old password provided for update");
+                return res.status(400).json({ error: 'Invalid credentials for update password' });
+            }
+            user.password = newPassword;
+
+            await user.save();
+
+            res.status(200).json({ message: 'Password updated successfully' });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
     }
 };
