@@ -74,19 +74,19 @@ const Services = () => {
                 <div className='absolute inset-0 opacity-25'><img src={sec0Bg} alt="" className='w-full h-full object-cover' /></div>
                 <div className='absolute right-0 top-1 overflow-hidden'><img src={sec0BgPattern} alt="" className='w-full h-[115vh] object-contain opacity-80' /></div>
                 <div className='m-2 md:ml-44 md:mt-40 z-10 flex flex-col justify-center items-start gap-2 md:gap-10'>
-                    <p className='text-[#D4B760] text-xl md:text-2xl ml-1'>Home {'>'}  Services</p>
+                    <p className='text-[#D4B760] text-xl md:text-2xl ml-1'>Home &gt;  Services</p>
                     <h1 className='text-3xl md:text-6xl font-semibold md:w-[45vw]'>Global HR & Manpower<span className='text-[#CEB551]'> Expertise</span></h1>
                     <div className='flex justify-center items-start gap-2 md:gap-8'>
                         <button className='py-[0.6rem] w-[40vw] md:w-[15vw] rounded bg-gradient-to-b text-sm md:text-lg font-semibold from-[#EDD569]/90 to-[#977619] bg-[#977619] hover:bg-black' onClick={(e) => {
                             e.preventDefault();
                             navigate('/proposal');
-                        }}>Request Proposal {'>'}</button>
+                        }}>Request Proposal &gt;</button>
                         <button className='py-[0.6rem] w-[28vw] md:w-[10vw] rounded bg-white text-black hover:bg-black hover:text-white text-sm md:text-lg font-semibold' onClick={
                             (e) => {
                                 e.preventDefault();
                                 navigate('/jobs');
                             }
-                        }>Register CV {'>'}</button>
+                        }>Register CV &gt;</button>
                     </div>
                 </div>
             </section >
@@ -168,16 +168,21 @@ const Services = () => {
             </section >
 
             {/* sec4 */}
-            < section className='relative flex flex-wrap md:placeholder:-40 justify-start items-center px-8 md:p-4 h-full md:h-[110vh]' >
+            < section className='relative flex flex-wrap md:justify-center justify-start items-center px-8 md:p-4 h-full md:h-[110vh]' >
                 <div className='absolute inset-0 h-full md:h-[135vh] bg-gradient-to-b from-black to-white/5 bg-white/5 -z-10'></div>
                 <div className='absolute inset-0'><img src={sec1Bg} alt="" className='w-full h-full md:h-[110vh] object-contain opacity-15 -z-10' /></div>
-                <div className='relative p-2 z-10 flex flex-col md:gap-16 gap-5 items-start w-auto md:w-[38vw]'>
+                <div className='relative p-2 z-10 flex flex-col md:gap-16 gap-5 justify-center items-start w-auto md:w-[80vw] sm:w-[100vw]'>
                     <div className='flex flex-col items-start gap-2'>
                         <h1 className='text-[#C2A441] text-xl md:text-2xl'>Contact Us</h1>
                         <h2 className='text-2xl md:text-4xl font-bold'>How Can We Help?</h2>
                     </div>
                     <p className='text-sm md:text-[1rem] md:w-[27vw]'>If there is anything you'd like to know about what we do, how we do it, or how we can help you, please get in touch.</p>
-                    <button className='bg-gradient-to-r from-[#F0D784]/85 to-[#C3A349] bg-[#C3A349] hover:bg-black rounded py-2 md:w-[10vw] w-[30vw] text-xs md:text-sm font-semibold'>Contact Us ></button>
+                    <button className='bg-gradient-to-r from-[#F0D784]/85 to-[#C3A349] bg-[#C3A349] hover:bg-black rounded py-2 md:w-[10vw] w-[30vw] text-xs md:text-sm font-semibold'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/proposal');
+                        }}
+                    >Contact Us &gt;</button>
                 </div>
                 <div className='z-10 p-2 md:absolute md:right-10 md:bottom-0'>
                     <img src={sec4Pic} alt="" className='md:h-[90vh] h-auto w-auto' />
