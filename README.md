@@ -1,40 +1,40 @@
-[Business Name] - Official Website
+AM Global Website Clone - Internship Project
 
 🚀 Deployed at: https://yousaf-khan-se-am-global-frontend.vercel.app/
 
 📖 Overview
 
-This is the public-facing website for [Business Name], built using React.
+This project is a frontend clone developed as a practice project during my internship at Quiad's Ventures.
 
-This project is a Single Page Application (SPA) designed to showcase our services, portfolio, and company information. It is a strictly frontend repository with no server-side code; all dynamic content is handled via client-side state or static configuration files.
+The goal was to replicate a professional business website using React to strengthen my understanding of component-based architecture, responsive design, and modern frontend practices. It serves as a portfolio piece demonstrating my ability to translate design into functional code.
 
-🌟 Key Features
+🌟 Implemented Features
 
-Responsive Design: Fully optimized for mobile, tablet, and desktop views.
+Responsive Layout: Replicated a fully responsive design that adapts seamlessly to mobile, tablet, and desktop screens.
 
-Fast Performance: Optimized assets and lazy-loading for quick page loads.
+Component Structure: Built using modular, reusable React components.
 
-Contact Form: Client-side form handling (integrated with EmailJS/Formspree/Netlify Forms).
+Routing: Implemented client-side routing for smooth navigation between pages.
 
-SEO Friendly: Meta tags and Open Graph data configured using react-helmet.
+Modern UI: Utilized modern CSS techniques/frameworks to match the aesthetic of a corporate identity.
 
-Modern UI: Clean, professional aesthetic suitable for corporate identity.
+Performance: Focused on code efficiency and asset optimization.
 
 🛠️ Tech Stack
 
 Core: React (v18+)
 
-Build Tool: Vite (or Create React App)
+Build Tool: Vite
 
 Routing: React Router DOM
 
-Styling: Tailwind CSS / [Styled Components] / [CSS Modules] (Select applicable)
+Styling: Tailwind CSS
 
 Icons: [FontAwesome]
 
 🚀 Getting Started
 
-Follow these instructions to set up the project locally on your machine.
+Follow these instructions to run the project locally.
 
 Prerequisites
 
@@ -42,7 +42,7 @@ Ensure you have the following installed:
 
 Node.js (v16 or higher)
 
-npm or yarn
+npm
 
 Installation
 
@@ -55,29 +55,19 @@ cd [repo-name]
 Install dependencies:
 
 npm install
-# or
-yarn install
-
-
-Set up Environment Variables:
-Create a .env file in the root directory if you need to configure API keys (e.g., for maps or form services).
-
-cp .env.example .env
 
 
 Running Locally
 
-Start the development server with hot-reload:
+Start the development server:
 
 npm run dev
-# or for Create React App:
-npm start
 
 
-Open http://localhost:5173 (or the port shown in your terminal) to view the site.
+Open http://localhost:5173 to view the site.
 
 📄 License
 
 Distributed under the MIT License. See LICENSE for more information.
 
-[Business Name] © 2025. All Rights Reserved.
+Developed by [Your Name] | Internship Project @ Quiad's Ventures
