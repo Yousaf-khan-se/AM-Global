@@ -1,55 +1,45 @@
-AM Global Website Clone - Internship Project
-
-🚀 Deployed at: https://yousaf-khan-se-am-global-frontend.vercel.app/
+AM Global Website Clone - Backend
 
 📖 Overview
 
-This project is a frontend clone developed as a practice project during my internship at Quiad's Ventures.
+This is the backend API for the AM Global Website Clone project, developed during my internship at Quiad's Ventures.
 
-The goal was to replicate a professional business website using React to strengthen my understanding of component-based architecture, responsive design, and modern frontend practices. It serves as a portfolio piece demonstrating my ability to translate design into functional code.
+It is a lightweight server built with Node.js, Express, and MongoDB. It handles data persistence for the frontend application, managing features such as form submissions and dynamic content retrieval.
 
-🌟 Implemented Features
+🌟 Key Features
 
-Responsive Layout: Replicated a fully responsive design that adapts seamlessly to mobile, tablet, and desktop screens.
+RESTful API: Provides endpoints for the React frontend to consume.
 
-Component Structure: Built using modular, reusable React components.
+Database Integration: Uses MongoDB (via Mongoose) for storing application data.
 
-Routing: Implemented client-side routing for smooth navigation between pages.
+CORS Enabled: Configured to allow requests from the frontend application.
 
-Modern UI: Utilized modern CSS techniques/frameworks to match the aesthetic of a corporate identity.
-
-Performance: Focused on code efficiency and asset optimization.
+Environment Config: Uses dotenv for secure configuration management.
 
 🛠️ Tech Stack
 
-Core: React (v18+)
+Runtime: Node.js
 
-Build Tool: Vite
+Framework: Express.js
 
-Routing: React Router DOM
+Database: MongoDB
 
-Styling: Tailwind CSS
-
-Icons: [FontAwesome]
+ODM: Mongoose
 
 🚀 Getting Started
 
-Follow these instructions to run the project locally.
-
 Prerequisites
 
-Ensure you have the following installed:
+Node.js installed.
 
-Node.js (v16 or higher)
-
-npm
+MongoDB (Local instance or MongoDB Atlas connection string).
 
 Installation
 
 Clone the repository:
 
-git clone [https://github.com/](https://github.com/)[your-username]/[repo-name].git
-cd [repo-name]
+git clone [https://github.com/](https://github.com/)[your-username]/[backend-repo-name].git
+cd [backend-repo-name]
 
 
 Install dependencies:
@@ -57,17 +47,30 @@ Install dependencies:
 npm install
 
 
-Running Locally
+Configuration
 
-Start the development server:
+Create a .env file in the root directory and add the following variables:
 
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/myDatabase
+
+
+Running the Server
+
+Start the server in development mode (using nodemon if installed) or standard node:
+
+# Standard start
+npm start
+
+# OR with Nodemon (for auto-restarts during dev)
 npm run dev
 
 
-Open http://localhost:5173 to view the site.
+The server will start on http://localhost:5000 (or your defined PORT).
+
 
 📄 License
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License.
 
-Developed by [Your Name] | Internship Project @ Quiad's Ventures
+Developed by [Muhammad Yousaf] | Internship Project @ Quiad's Ventures
